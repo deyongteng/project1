@@ -362,6 +362,14 @@ img {
   background: url(../img/close.png) no-repeat;
 }
 .qqBox {
+  width: 20rem;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+.qqBox2 {
   width: 40rem;
   height: 100%;
   position: absolute;

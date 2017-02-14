@@ -796,36 +796,38 @@
 			if(onoff){
 				onoff=false;
 				$(".use").eq(1).append("</div><div class='qqBox'></div>")
-				var str="<div class='logon'>\
-							<div class='initilBg'></div>\
-							<div class='logonOption'>\
-								<span>登 录</span>\
-								<span>注 册</span>\
-							</div>\
-						</div>\
-						<div class='logon1'>\
-							<div class='tImgBox'>\
-								<span class='qqImg'></span>\
-							</div>\
-							<div class='textBox'>\
-								<div class='inpu'>\
-									<span>x</span>\
-									<input placeholder='QQ号/手机号/邮箱' type='text' class='texts'/>\
-									<input maxlength='17' placeholder='密码' type='password' class='pass'/>\
-								</div>\
-								<div class='enter'>\
-									<input type='submit' class='subm' value='登 录'/>\
-								</div>\
-								<div class='user clearfix'>\
-									<span class='lef'>忘记密码？</span>\
-									<span class='rig'>新用户注册</span>\
+				var str="<div class='qqBox2'>\
+							<div class='logon'>\
+								<div class='initilBg'></div>\
+								<div class='logonOption'>\
+									<span>登 录</span>\
+									<span>注 册</span>\
 								</div>\
 							</div>\
-						</div>\
-						<div class='skewBox'>\
-							<span></span>\
-							<span>我已阅读并同意</span>\
-							<a href='http://ti.qq.com/agreement/index.html'>服务条款</a>\
+							<div class='logon1'>\
+								<div class='tImgBox'>\
+									<span class='qqImg'></span>\
+								</div>\
+								<div class='textBox'>\
+									<div class='inpu'>\
+										<span>x</span>\
+										<input placeholder='QQ号/手机号/邮箱' type='text' class='texts'/>\
+										<input maxlength='17' placeholder='密码' type='password' class='pass'/>\
+									</div>\
+									<div class='enter'>\
+										<input type='submit' class='subm' value='登 录'/>\
+									</div>\
+									<div class='user clearfix'>\
+										<span class='lef'>忘记密码？</span>\
+										<span class='rig'>新用户注册</span>\
+									</div>\
+								</div>\
+							</div>\
+							<div class='skewBox'>\
+								<span></span>\
+								<span>我已阅读并同意</span>\
+								<a href='http://ti.qq.com/agreement/index.html'>服务条款</a>\
+							</div>\
 						</div>";
 				$(".qqBox").append(str);
 				$(".qqImg").css("background-image","url("+data1[1]+")");	
@@ -851,7 +853,7 @@
 				var spans=$(".logonOption").find("span");
 				spans.eq(0).on("touchstart",function(){
 					spans.eq(0).css("background-color","#eeedf2");
-					$(".qqBox").animate({
+					$(".qqBox2").animate({
 						marginLeft:"-100%"
 					},400,function(){
 						$(".textBox").animate({
