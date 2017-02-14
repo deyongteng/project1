@@ -809,8 +809,9 @@
 							</div>\
 							<div class='textBox'>\
 								<div class='inpu'>\
+									<span>x</span>\
 									<input placeholder='QQ号/手机号/邮箱' type='text' class='texts'/>\
-									<input placeholder='密码' type='password' class='pass'/>\
+									<input maxlength='17' placeholder='密码' type='password' class='pass'/>\
 								</div>\
 								<div class='enter'>\
 									<input type='submit' class='subm' value='登 录'/>\
@@ -887,15 +888,45 @@
 				$(".bouncedBox").append(bouncedTex);
 				//登录
 				$(".subm").on("touchstart",function(){
+					if(onffo){
+						return;
+					}
 					var textVa=$(".texts").val();
 					var passVa=$(".pass").val();
-			
-					var re=/^[1-9]\d{4,11}$/;
 					
-					if(re.test(textVa)){
-						
+					var re=/^[1-9]\d{4,10}$/;
+					var re1= /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z]{2,4})+$/;
+					var phone=/^[1][3578]\d{9}$/;
+	
+					if(textVa===""||passVa===""){
+						return;
+					}else if(textVa.match("@")){
+						if(!re1.test(textVa)){
+							$(".shade").css("display","block");
+							$(".bouncedBox").css("display","block");
+							$(".bouncedBox").find("span").eq(0).html("邮箱错误 , 请重新输入!");
+						}else{
+							console.log("邮箱登录");
+						}
+					}else if(phone.test(textVa)){
+							console.log("手机号登录")
+					}else if(!re.test(textVa)){
+						$(".shade").css("display","block");
+						$(".bouncedBox").css("display","block");
+						$(".bouncedBox").find("span").eq(0).html("账号不存在, 请重新输入!");
+					}else{
+						console.log("QQ登录");
 					}
-					
+				});
+				//清除QQ登陆框内容
+				$(".inpu").find("span").eq(0).on("touchstart",function(){
+					$(".texts").val("");
+					$(".pass").val("");
+				})
+				//点击确认
+				$(".bouncedBox").find("span").eq(1).on("touchstart",function(){
+					$(".shade").css("display","none");
+					$(".bouncedBox").css("display","none");
 				});
 			}
 		}
