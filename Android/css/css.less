@@ -5,6 +5,7 @@ body{
     width:100%;
     height: 100%;
     overflow: hidden;
+    -webkit-user-select:none
 }
 input,h3{
     border: 0;
@@ -28,6 +29,7 @@ img{
     border: none;
     vertical-align: top
 }
+
 @-webkit-keyframes move{
     0%{
         background-position:-180/@rem 0;
@@ -417,9 +419,6 @@ img{
     text-align: center;
     float:left;
 }
-.logon{
-//  display: none;
-}
 .logon1{
     background-color:#eeedf2;
 }
@@ -437,7 +436,6 @@ img{
     position: absolute;
     left: 0;
     bottom: -10%;
-//  transition: 1s linear;
 }
 .logonOption>span{
     width:140/@rem;
@@ -451,6 +449,7 @@ img{
 .tImgBox{
     width: 100%;
     height: 100/@rem;
+    margin-top:20/@rem ;
     text-align: center;
     padding-bottom:10/@rem;
 }
@@ -469,6 +468,8 @@ img{
 }
 .inpu{
    position: relative;
+   left: 0;
+   top:0;
 }
 .inpu>span{
     position: absolute;
@@ -498,7 +499,7 @@ img{
 }
 .subm{
     width: 80%;
-    height: 40/@rem;
+    height: 33/@rem;
     border-radius: 10/@rem;
     background-color: #1ebbf0;
     font-family: "微软雅黑";
@@ -531,7 +532,7 @@ img{
     width: 160/@rem;
     height: 30/@rem;
     position: absolute;
-    left: 62.5%;
+    left: 25%;
     bottom: 5%;
     font-size: 12/@rem;
     line-height: 20/@rem;
@@ -572,7 +573,7 @@ img{
     position: absolute;
     background: #fff;
     left: 15.5%;
-    top: 39%;
+    top: 35%;
     z-index: 20;
     text-align: center;
     display: none;
@@ -598,4 +599,37 @@ img{
     border-top: 1px solid #d2d2d2;
     height: 32/@rem;
     line-height: 32/@rem;
+}
+
+//弹框2
+.bouncedBox2{
+    width: 100%;
+    height: 40/@rem;
+    line-height: 40/@rem;
+    padding-top:10/@rem ;
+    background-color:#fff;
+    text-align: left;
+    position: absolute;
+    left: 0;
+    top: -50%;
+    
+}
+.bouncedBox2>span{
+    display: inline-block;
+    margin-left: 6/@rem;
+    color: #020202;
+}
+.bouncedBox2>span:nth-of-type(1){
+    width: 20/@rem;
+    height: 20/@rem;
+    line-height: 20/@rem;
+    background-color:#1ebbf0;
+    text-align: center;
+    border-radius: 50%;
+    color: #fff;
+}
+//QQ分组区
+.Grouping{
+    width: 320/@rem;
+    height: 100%;
 }

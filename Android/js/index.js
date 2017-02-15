@@ -795,7 +795,9 @@
 		if(index===1){
 			if(onoff){
 				onoff=false;
-				$(".use").eq(1).append("</div><div class='qqBox'></div>")
+				$(".use").eq(1).append("</div><div class='qqBox'></div>");
+				
+				//登录面板
 				var str="<div class='qqBox2'>\
 							<div class='logon'>\
 								<div class='initilBg'></div>\
@@ -810,7 +812,7 @@
 								</div>\
 								<div class='textBox'>\
 									<div class='inpu'>\
-										<span>x</span>\
+										<span>×</span>\
 										<input placeholder='QQ号/手机号/邮箱' type='text' class='texts'/>\
 										<input maxlength='17' placeholder='密码' type='password' class='pass'/>\
 									</div>\
@@ -822,13 +824,17 @@
 										<span class='rig'>新用户注册</span>\
 									</div>\
 								</div>\
-							</div>\
-							<div class='skewBox'>\
-								<span></span>\
-								<span>我已阅读并同意</span>\
-								<a href='http://ti.qq.com/agreement/index.html'>服务条款</a>\
+								<div class='skewBox'>\
+									<span></span>\
+									<span>我已阅读并同意</span>\
+									<a href='http://ti.qq.com/agreement/index.html'>服务条款</a>\
+								</div>\
 							</div>\
 						</div>";
+				
+				//分组功能面板
+				var str2="<div class='Grouping'></div>";
+				
 				$(".qqBox").append(str);
 				$(".qqImg").css("background-image","url("+data1[1]+")");	
 				
@@ -888,6 +894,11 @@
 				$(".logon1").append(tk)
 				var bouncedTex="<h3>登录失败</h3><span></span><span>确定</span>"
 				$(".bouncedBox").append(bouncedTex);
+				
+				//弹框2
+				var tK2="<div class='bouncedBox2'><span>i</span><span></span></div>";
+				$(".logon1").append(tK2);
+				
 				//登录
 				$(".subm").on("touchstart",function(){
 					if(onffo){
@@ -899,13 +910,33 @@
 					var re=/^[1-9]\d{4,10}$/;
 					var re1= /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z]{2,4})+$/;
 					var phone=/^[1][3578]\d{9}$/;
-	
-					if(textVa===""||passVa===""){
-						return;
+					var pass=/^[a-zA-Z0-9\w\x21-\x7e]{6,16}$/;
+					if(textVa===""){
+						$(".bouncedBox2").animate({
+							top:"0"
+						},400,function(){
+							setTimeout(function(){
+								$(".bouncedBox2").animate({
+									top:"-100%"
+								},500);
+							},2000);
+						});
+						$(".bouncedBox2").find("span").eq(1).html("请输入账号 。" );
+					}else if(passVa===""){
+						$(".bouncedBox2").animate({
+							top:"0"
+						},500,function(){
+							setTimeout(function(){
+								$(".bouncedBox2").animate({
+									top:"-100%"
+								},400);
+							},2000);
+						});
+						$(".bouncedBox2").find("span").eq(1).html("请输入密码 。" );
 					}else if(textVa.match("@")){
 						if(!re1.test(textVa)){
-							$(".shade").css("display","block");
-							$(".bouncedBox").css("display","block");
+							$(".shade").css("top","0");
+							$(".bouncedBox").show();
 							$(".bouncedBox").find("span").eq(0).html("邮箱错误 , 请重新输入!");
 						}else{
 							console.log("邮箱登录");
@@ -913,12 +944,17 @@
 					}else if(phone.test(textVa)){
 							console.log("手机号登录")
 					}else if(!re.test(textVa)){
-						$(".shade").css("display","block");
-						$(".bouncedBox").css("display","block");
+						$(".shade").show()
+							$(".bouncedBox").show();
 						$(".bouncedBox").find("span").eq(0).html("账号不存在, 请重新输入!");
+					}else if(!pass.test(passVa)){
+						$(".shade").show()
+						$(".bouncedBox").show()
+						$(".bouncedBox").find("span").eq(0).html("密码错误, 请重新输入!");
 					}else{
 						console.log("QQ登录");
 					}
+					
 				});
 				//清除QQ登陆框内容
 				$(".inpu").find("span").eq(0).on("touchstart",function(){
@@ -927,9 +963,18 @@
 				})
 				//点击确认
 				$(".bouncedBox").find("span").eq(1).on("touchstart",function(){
-					$(".shade").css("display","none");
-					$(".bouncedBox").css("display","none");
+					$(".shade").hide();
+					$(".bouncedBox").hide();
 				});
+				var h=$(window).height();
+			    $(window).resize(function(){
+			        if($(window).height()<h){
+			            $('.skewBox').hide();
+			        }
+			        if($(window).height()>=h){
+			            $('.skewBox').show();
+			        }
+			    });
 			}
 		}
 		if(index===2){
