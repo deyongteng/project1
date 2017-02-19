@@ -813,7 +813,8 @@
 								<div class='textBox'>\
 									<div class='inpu'>\
 										<span>×</span>\
-										<input placeholder='QQ号/手机号/邮箱' type='text' class='texts'/>\
+										<input maxlength='17' placeholder='QQ号/手机号/邮箱' type='text' class='texts'/>\
+										<span>×</span>\
 										<input maxlength='17' placeholder='密码' type='password' class='pass'/>\
 									</div>\
 									<div class='enter'>\
@@ -832,11 +833,8 @@
 							</div>\
 						</div>";
 				
-				//分组功能面板
-				var str2="<div class='Grouping'></div>";
-				
 				$(".qqBox").append(str);
-				$(".qqImg").css("background-image","url("+data1[1]+")");	
+				$(".qqImg").css("background-image","url("+ico[0]+")");	
 				
 				//logon动画
 				setTimeout(function(){
@@ -844,16 +842,16 @@
 					var logonOption=document.querySelector(".logonOption");
 					MTween({
 						el:initilBg,
-						target:{scale:80},
+						target:{scale:96},
 						time:920,
-						type:"linear",
-						callIn:function(){
-							$(".logonOption").animate({
+						type:"linear"
+					});
+					$(".logonOption").animate({
 								bottom:"10%"
-							},1000)
-						}
-					})
-				},500);
+						},{
+							duration:1000
+					});
+				},1000);
 				
 				//logon1动画
 				var spans=$(".logonOption").find("span");
@@ -863,7 +861,7 @@
 						marginLeft:"-100%"
 					},400,function(){
 						$(".textBox").animate({
-							marginTop:0
+							marginTop:"0%"
 						},300,"linear");
 					});
 					return false;
@@ -917,7 +915,7 @@
 						},400,function(){
 							setTimeout(function(){
 								$(".bouncedBox2").animate({
-									top:"-100%"
+									top:"-50%"
 								},500);
 							},2000);
 						});
@@ -928,7 +926,7 @@
 						},500,function(){
 							setTimeout(function(){
 								$(".bouncedBox2").animate({
-									top:"-100%"
+									top:"-50%"
 								},400);
 							},2000);
 						});
@@ -940,9 +938,11 @@
 							$(".bouncedBox").find("span").eq(0).html("邮箱错误 , 请重新输入!");
 						}else{
 							console.log("邮箱登录");
+							$('.Grouping').show();
 						}
 					}else if(phone.test(textVa)){
-							console.log("手机号登录")
+							console.log("手机号登录");
+							$('.Grouping').show();
 					}else if(!re.test(textVa)){
 						$(".shade").show()
 							$(".bouncedBox").show();
@@ -953,13 +953,30 @@
 						$(".bouncedBox").find("span").eq(0).html("密码错误, 请重新输入!");
 					}else{
 						console.log("QQ登录");
+						$('.Grouping').show();
 					}
 					
 				});
+				
+				//显示/隐藏 清空按钮
+				var delet1=$(".inpu").find("span").eq(0);
+				var delet2=$(".inpu").find("span").eq(1);
+				$(".texts").on("input",function(){
+					$(".texts").val()!==""? delet1.show():delet1.hide();
+				});
+				
+				$(".pass").on("input",function(){
+					$(".pass").val()!==""? delet2.show():delet2.hide();
+				});
+				
 				//清除QQ登陆框内容
 				$(".inpu").find("span").eq(0).on("touchstart",function(){
 					$(".texts").val("");
+					delet1.hide();
+				})
+				$(".inpu").find("span").eq(1).on("touchstart",function(){
 					$(".pass").val("");
+					delet2.hide();
 				})
 				//点击确认
 				$(".bouncedBox").find("span").eq(1).on("touchstart",function(){
@@ -975,6 +992,63 @@
 			            $('.skewBox').show();
 			        }
 			    });
+			    ;(function(){
+			    	//分组功能面板
+					var str2="<div class='Grouping'>\
+									<div class='topT'>\
+										<span></span>\
+										<span>联系人</span>\
+										<span>添加</span>\
+									</div>\
+									<div class='Contacts'>\
+										<div class='topBox'>\
+											<a href='javascript:;'>\
+												<img class='searchImg' src="+ico[1]+" />\
+											</a>\
+											<div class='group'></div>\
+										</div>\
+										<ul class='specialBox'></ul>\
+										<ul class='ordinaryBox'></ul>\
+									</div>\
+									<div class='bottomB'></div>\
+							   </div>";
+					$(".qqBox").append(str2);
+					$(".topT").find("span").eq(0).css("background-image","url("+ico[0]+")");
+					
+					//生成头部主类
+					var fenZ="";
+					for (var i = 0; i < iocF.length; i++) {
+						fenZ+="<div class='lei'><img class ='leiImg' src="+iocF[i]+"/><span>"+ioctext[i]+"</span></div>"
+					}
+					$('.group').append(fenZ);
+					
+					//生成底部主类
+					var bott="";
+					for (var i = 0; i < bottomImg.length; i++) {
+						bott+="<div class='lei'><img class ='leiImg' src="+bottomImg[i]+"/><span>"+bottomText[i]+"</span></div>"
+					}
+					$('.bottomB').append(bott);
+					
+					//特殊分组
+					var special="";
+					for (var i = 0; i < specialText.length; i++) {
+						special+="<li><img src="+offoImg[0]+"/><p>"+specialText[i]+"</p><span>0/0</span></li>"
+					}
+					$('.specialBox').append(special);
+					
+					//生成普通分组
+					var ordinary="";
+					for (var i = 0; i < ordinaryText.length; i++) {
+						ordinary+="<li><img src="+offoImg[0]+"/><p>"+ordinaryText[i]+"</p><span>0/0</span><div></div></li>"
+					}
+					$('.ordinaryBox').append(ordinary);
+					
+					//分组事件
+					var lis=$('.ordinaryBox').find("li");
+					lis.on("touchstart",function(){
+						console.log(this)
+					})
+			    })();
 			}
 		}
 		if(index===2){
@@ -983,7 +1057,7 @@
 		if(index===3){
 			$(".use").eq(3).append("<div class='photoBox'></div>")
 		}
-	})
+	});
 })()
 
 	

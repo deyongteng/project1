@@ -7,7 +7,7 @@ body{
     overflow: hidden;
     -webkit-user-select:none
 }
-input,h3{
+input,h3,p{
     border: 0;
     padding: 0;
     margin: 0;
@@ -23,7 +23,6 @@ ul{
     margin: 0;
     padding: 0;
     list-style: none;
-    transform: scaleX()
 }
 img{
     border: none;
@@ -138,7 +137,6 @@ img{
     top: 0;
     left: 0;
     position: absolute;
-//  display: none;
 }
 #shade1{
     width: 320 /@rem;
@@ -146,7 +144,6 @@ img{
     top: 0;
     left: 0;
     position: absolute;
-//  display: none;
 }
 /*============================================================*/
 
@@ -373,15 +370,13 @@ img{
     backface-visibility: hidden;
 }
 #deleteX{
-    width: 57/@rem;
-    height: 40/@rem;
-    text-align: center;
-    line-height: 20/@rem;
-    color: #fff;
+    width: 30/@rem;
+    height: 30/@rem;
     position: absolute;
-    right: 5%;
-    top: 5%;
+    right: 3%;
+    top: 3%;
     background: url(../img/close.png) no-repeat;
+    background-size:100% 100% ;
 }
 
 //QQ应用
@@ -424,9 +419,9 @@ img{
 }
 .initilBg{
     width: 180/@rem;
-    height: 380/@rem;
+    height: 340/@rem;
     margin-top: 30/@rem;
-    margin-left: 20%;
+    margin-left: 21%;
     background:url(../img/qqBg.png) no-repeat;
     background-size:100%  100%;
 }
@@ -459,7 +454,7 @@ img{
     height: 80/@rem;
     border-radius:50% ;
     border: 1px solid #fff;
-    background-size: 100% 100%;
+    background-position: center 5/@rem;
     margin-top: 6%;
 }
 .textBox{
@@ -481,10 +476,15 @@ img{
     border-radius: 50%;
     background: #eeeeee;
     color: #fff;
+    display: none;
+}
+.inpu>span:nth-of-type(2){
+    right: 10%;
+    top: 63%;
 }
 .texts,
 .pass{
-    width: 100%;
+    width: 300/@rem;
     height: 44/@rem;
     padding: 0 10/@rem;
     margin-bottom: 1/@rem;
@@ -628,8 +628,171 @@ img{
     border-radius: 50%;
     color: #fff;
 }
+.qqBox2,
+#shade,
+#shade1{
+//  display: none;
+}
 //QQ分组区
 .Grouping{
     width: 320/@rem;
     height: 100%;
+    background-color: #f8f9fa;
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: auto;
+    display: none;
 }
+.topT{
+    width: 300/@rem;
+    padding: 10/@rem 10/@rem 0 10/@rem;
+    height: 40/@rem;
+    line-height:40/@rem;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color:#12b7f5 ;
+}
+.topT>span{
+    display: inline-block;
+    color: #e7ffff;
+}
+.topT>span:nth-of-type(1){
+    width: 25/@rem;
+    height: 25/@rem;
+    background-position: center 0;
+    background-size:200%;
+    background-repeat:no-repeat ;
+    border-radius: 50%;
+    vertical-align: sub;
+    float: left;
+    margin-top: 6/@rem;
+}
+.topT>span:nth-of-type(3){
+    float: right;
+}
+.bottomB{
+    width: 100%;
+    height: 50/@rem;
+    padding-top:10/@rem ;
+    background-color:#fff ;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+.bottomB>div>img{
+    width: 20/@rem;
+    height: 20/@rem;
+}
+.Contacts{
+    width: 100%;
+    height: 100%;
+    margin-top: 50/@rem;
+}
+.topBox{
+    width: 300/@rem;
+    height: 90/@rem;
+    background-color: #fff;
+    padding: 5/@rem 10/@rem 0 10/@rem;
+    margin-bottom: 20/@rem;
+}
+.searchImg{
+    width: 300/@rem;
+    height: 25/@rem;
+    margin-bottom: 10/@rem;
+}
+.group{
+    width:300/@rem ;
+    height: 55/@rem;
+}
+.lei{
+    width: 93/@rem;
+    height: 55/@rem;
+    text-align: center;
+    float: left;
+    margin-left:10/@rem ;
+}
+.group>div:nth-of-type(1){
+    margin-left: 0;
+}
+.leiImg{
+    width: 30/@rem;
+    height: 30/@rem;
+}
+.lei>span{
+    display: block;
+    font-size: 14/@rem;
+    margin-top: 4/@rem;
+}
+.specialBox{
+    width: 320/@rem;
+    height: auto;
+    background-color: #fff;
+    font-size: 14/@rem;
+    color: #000;
+    margin-bottom: 10/@rem;
+}
+.specialBox>li{
+    width: 300/@rem;
+    height: 30/@rem;
+    line-height: 30/@rem;
+    padding: 0 10/@rem 0 10/@rem;
+    border-bottom: 1px solid #dedfe0;
+}
+.specialBox>li>img{
+    width: 10/@rem;
+    height: 10/@rem;
+    vertical-align: baseline;
+    margin-right: 13/@rem;
+}
+.specialBox>li>p{
+    width: 200/@rem;
+    height: 30/@rem;
+    display: inline-block;
+}
+.specialBox>li>span{
+    float: right;
+    display: inline-block;
+    margin-right: 10/@rem;
+    
+}
+.ordinaryBox{
+    width: 320/@rem;
+    height: auto;
+    background-color: #fff;
+    font-size: 14/@rem;
+    color: #000;
+}
+.ordinaryBox>li{
+    width: 300/@rem;
+    height: auto;
+    line-height: 30/@rem;
+    padding: 0 10/@rem 0 10/@rem;
+    border-bottom: 1px solid #dedfe0;
+}
+.ordinaryBox>li>img{
+    width: 10/@rem;
+    height: 10/@rem;
+    vertical-align: baseline;
+    margin-right: 13/@rem;
+}
+.ordinaryBox>li>p{
+    width: 200/@rem;
+    height: 30/@rem;
+    display: inline-block;
+}
+.ordinaryBox>li>span{
+    float: right;
+    display: inline-block;
+    margin-right: 10/@rem;
+    
+}
+.ordinaryBox>li>div{
+    width: 100%;
+    height:30/@rem;
+    background: yellow;
+    display: none;
+}
+
