@@ -1018,28 +1018,28 @@
 					//生成头部主类
 					var fenZ="";
 					for (var i = 0; i < iocF.length; i++) {
-						fenZ+="<div class='lei'><img class ='leiImg' src="+iocF[i]+"/><span>"+ioctext[i]+"</span></div>"
+						fenZ+="<div class='lei'><img class ='leiImg' src='img/"+iocF[i]+"'/><span>"+ioctext[i]+"</span></div>"
 					}
 					$('.group').append(fenZ);
 					
 					//生成底部主类
 					var bott="";
 					for (var i = 0; i < bottomImg.length; i++) {
-						bott+="<div class='lei'><img class ='leiImg' src="+bottomImg[i]+"/><span>"+bottomText[i]+"</span></div>"
+						bott+="<div class='lei'><img class ='leiImg' src='img/"+bottomImg[i]+"'/><span>"+bottomText[i]+"</span></div>"
 					}
 					$('.bottomB').append(bott);
 					
 					//特殊分组
 					var special="";
 					for (var i = 0; i < specialText.length; i++) {
-						special+="<li><img src="+offoImg[0]+"/><p>"+specialText[i]+"</p><span>0/0</span></li>"
+						special+="<li><img src='img/"+offoImg[0]+"'/><p>"+specialText[i]+"</p><span>0/0</span></li>"
 					}
 					$('.specialBox').append(special);
 					
 					//生成普通分组
 					var ordinary="";
 					for (var i = 0; i < ordinaryText.length; i++) {
-						ordinary+="<li><img src="+offoImg[0]+"/><p>"+ordinaryText[i]+"</p><span>0/0</span><div></div></li>"
+						ordinary+="<li><img src='img/"+offoImg[0]+"'/><p>"+ordinaryText[i]+"</p><span>0/0</span><div></div></li>"
 					}
 					$('.ordinaryBox').append(ordinary);
 					
