@@ -873,7 +873,7 @@
 				//同款条例
 				var spans=$(".skewBox").find("span");
 				var onffo=true;
-				spans.eq(0).on("touchstart",function(){
+				spans.eq(0).on("touchend",function(){
 					if(onffo){
 						$(".subm").css("color","#fff")
 						spans.eq(0).css("background-image","url(./img/yes.png)");
