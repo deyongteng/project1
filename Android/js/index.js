@@ -873,7 +873,7 @@
 				//同款条例
 				var spans=$(".skewBox").find("span");
 				var onffo=true;
-				spans.eq(0).on("touchend",function(){
+				spans.eq(0).on("touchstart",function(){
 					if(onffo){
 						$(".subm").css("color","#fff")
 						spans.eq(0).css("background-image","url(./img/yes.png)");
@@ -1050,7 +1050,7 @@
 					for (var i = 0; i < lis.length; i++) {
 						lis[i].onoff=true;
 					}
-					lis.on("touchstart",function(){
+					lis.on("touchend",function(){
 						if(this.onoff){
 							$(this).find("img").attr("src","img/"+offoImg[1]+"");
 							$(this).find("div").eq(1).show();
