@@ -8,3 +8,4 @@ var specialText=["特别关心","常聊群"];
 var ordinaryText=["我的好友","同学","企业好友","合作伙伴","同事","Number","String","Boolean","Object","Null"];
 var bottomImg=["bottomLogo1.png","bottomLogo2.png","bottomLogo3.png"];
 var bottomText=["消息","联系人","动态"];
+var naMe=["小勃","小明","马小云","Jess","Angela","jack","Juliet","Jsens","Carle","Dean"];

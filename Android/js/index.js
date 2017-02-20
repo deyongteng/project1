@@ -894,69 +894,8 @@
 				$(".bouncedBox").append(bouncedTex);
 				
 				//弹框2
-				var tK2="<div class='bouncedBox2'><span>i</span><span></span></div>";
+				var tK2="<div class='bouncedBox2'><span class='tanK2'>i</span><span></span></div>";
 				$(".logon1").append(tK2);
-				
-				//登录
-				$(".subm").on("touchstart",function(){
-					if(onffo){
-						return;
-					}
-					var textVa=$(".texts").val();
-					var passVa=$(".pass").val();
-					
-					var re=/^[1-9]\d{4,10}$/;
-					var re1= /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z]{2,4})+$/;
-					var phone=/^[1][3578]\d{9}$/;
-					var pass=/^[a-zA-Z0-9\w\x21-\x7e]{6,16}$/;
-					if(textVa===""){
-						$(".bouncedBox2").animate({
-							top:"0"
-						},400,function(){
-							setTimeout(function(){
-								$(".bouncedBox2").animate({
-									top:"-50%"
-								},500);
-							},2000);
-						});
-						$(".bouncedBox2").find("span").eq(1).html("请输入账号 。" );
-					}else if(passVa===""){
-						$(".bouncedBox2").animate({
-							top:"0"
-						},500,function(){
-							setTimeout(function(){
-								$(".bouncedBox2").animate({
-									top:"-50%"
-								},400);
-							},2000);
-						});
-						$(".bouncedBox2").find("span").eq(1).html("请输入密码 。" );
-					}else if(textVa.match("@")){
-						if(!re1.test(textVa)){
-							$(".shade").css("top","0");
-							$(".bouncedBox").show();
-							$(".bouncedBox").find("span").eq(0).html("邮箱错误 , 请重新输入!");
-						}else{
-							console.log("邮箱登录");
-							$('.Grouping').show();
-						}
-					}else if(phone.test(textVa)){
-							console.log("手机号登录");
-							$('.Grouping').show();
-					}else if(!re.test(textVa)){
-						$(".shade").show()
-							$(".bouncedBox").show();
-						$(".bouncedBox").find("span").eq(0).html("账号不存在, 请重新输入!");
-					}else if(!pass.test(passVa)){
-						$(".shade").show()
-						$(".bouncedBox").show()
-						$(".bouncedBox").find("span").eq(0).html("密码错误, 请重新输入!");
-					}else{
-						console.log("QQ登录");
-						$('.Grouping').show();
-					}
-					
-				});
 				
 				//显示/隐藏 清空按钮
 				var delet1=$(".inpu").find("span").eq(0);
@@ -978,11 +917,14 @@
 					$(".pass").val("");
 					delet2.hide();
 				})
-				//点击确认
+				
+				//弹框1 确认功能
 				$(".bouncedBox").find("span").eq(1).on("touchstart",function(){
 					$(".shade").hide();
 					$(".bouncedBox").hide();
 				});
+				
+				//条款条例显示 隐藏
 				var h=$(window).height();
 			    $(window).resize(function(){
 			        if($(window).height()<h){
@@ -992,76 +934,193 @@
 			            $('.skewBox').show();
 			        }
 			    });
-			    ;(function(){
-			    	//分组功能面板
-					var str2="<div class='Grouping'>\
-									<div class='topT'>\
-										<span></span>\
-										<span>联系人</span>\
-										<span>添加</span>\
-									</div>\
-									<div class='Contacts'>\
-										<div class='topBox'>\
-											<a href='javascript:;'>\
-												<img class='searchImg' src="+ico[1]+" />\
-											</a>\
-											<div class='group'></div>\
-										</div>\
-										<ul class='specialBox'></ul>\
-										<ul class='ordinaryBox'></ul>\
-									</div>\
-									<div class='bottomB'></div>\
-							   </div>";
-					$(".qqBox").append(str2);
-					$(".topT").find("span").eq(0).css("background-image","url("+ico[0]+")");
+				
+				//登录验证
+				$(".subm").on("touchstart",function(){
+					if(onffo){
+						return;
+					}
+					var textVa=$(".texts").val();
+					var passVa=$(".pass").val();
 					
-					//生成头部主类
-					var fenZ="";
-					for (var i = 0; i < iocF.length; i++) {
-						fenZ+="<div class='lei'><img class ='leiImg' src='img/"+iocF[i]+"'/><span>"+ioctext[i]+"</span></div>"
-					}
-					$('.group').append(fenZ);
-					
-					//生成底部主类
-					var bott="";
-					for (var i = 0; i < bottomImg.length; i++) {
-						bott+="<div class='lei'><img class ='leiImg' src='img/"+bottomImg[i]+"'/><span>"+bottomText[i]+"</span></div>"
-					}
-					$('.bottomB').append(bott);
-					$('.bottomB').find("span").eq(1).css("color","#71d3f9");
-					
-					//特殊分组
-					var special="";
-					for (var i = 0; i < specialText.length; i++) {
-						special+="<li><img src='img/"+offoImg[0]+"'/><p>"+specialText[i]+"</p><span>0/0</span></li>"
-					}
-					$('.specialBox').append(special);
-					
-					//生成普通分组
-					var ordinary="";
-					for (var i = 0; i < ordinaryText.length; i++) {
-						ordinary+="<li><div class='title'><img src='img/"+offoImg[0]+"'/><p>"+ordinaryText[i]+"</p><span>0/1</span></div><div class='children'><span></span><p>小明</p></div></li>"
-					}
-					$('.ordinaryBox').append(ordinary);
-					$('.children').find("span").css("background-image","url("+ico[0]+")")
-			
-					//分组事件
-					var lis=$('.ordinaryBox').find("li");
-					for (var i = 0; i < lis.length; i++) {
-						lis[i].onoff=true;
-					}
-					lis.on("touchend",function(){
-						if(this.onoff){
-							$(this).find("img").attr("src","img/"+offoImg[1]+"");
-							$(this).find("div").eq(1).show();
-							this.onoff=false;
+					var re=/^[1-9]\d{4,10}$/;
+					var re1= /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z]{2,4})+$/;
+					var phone=/^[1][3578]\d{9}$/;
+					var pass=/^[a-zA-Z0-9\w\x21-\x7e]{6,16}$/;
+					var span2Text=$(".bouncedBox2").find("span").eq(1)
+					if(textVa===""){
+						$(".bouncedBox2").animate({
+							top:"0"
+						},400,function(){
+							setTimeout(function(){
+								$(".bouncedBox2").animate({
+									top:"-50%"
+								},500);
+							},2000);
+						});
+						span2Text.html("请输入账号 。" );
+						span2Text.css("color","#000");
+						
+					}else if(passVa===""){
+						$(".bouncedBox2").animate({
+							top:"0"
+						},500,function(){
+							setTimeout(function(){
+								$(".bouncedBox2").animate({
+									top:"-50%"
+								},400);
+							},2000);
+						});
+						span2Text.html("请输入密码 。" );
+						span2Text.css("color","#000");
+					}else if(textVa.match("@")){
+						if(!re1.test(textVa)){
+							$(".shade").css("top","0");
+							$(".bouncedBox").show();
+							$(".bouncedBox").find("span").eq(0).html("邮箱错误 , 请重新输入!");
 						}else{
-							$(this).find("img").attr("src","img/"+offoImg[0]+"")
-							$(this).find("div").eq(1).hide();
-							this.onoff=true;
+							console.log("邮箱登录");
+							loading();
+							setTimeout(function(){
+								Jump();//跳转;
+							},1000);
+							
 						}
-					}); 
-			    })();
+					}else if(phone.test(textVa)){
+							console.log("手机号登录");
+							loading();
+							setTimeout(function(){
+								Jump();//跳转;
+							},1000);
+					}else if(!re.test(textVa)){
+						$(".shade").show()
+							$(".bouncedBox").show();
+						$(".bouncedBox").find("span").eq(0).html("账号不存在, 请重新输入!");
+					}else if(!pass.test(passVa)){
+						$(".shade").show()
+						$(".bouncedBox").show()
+						$(".bouncedBox").find("span").eq(0).html("密码错误, 请重新输入!");
+					}else{
+						console.log("QQ登录");
+						loading();
+						setTimeout(function(){
+							Jump();//跳转;
+						},1000);
+					}
+				});
+				
+				//loading
+				function loading(){
+					var bouncedBox2=$('.bouncedBox2');
+					bouncedBox2.css("background-color","#020202");
+					bouncedBox2.css("text-align","center");
+					bouncedBox2.html("<span class='loadinImg'></span><span>登录中...</sapn>");
+					bouncedBox2.find("span").eq(1).css("color","#fff");
+					bouncedBox2.css("top","0");
+					var loadinImg=$('.loadinImg');
+					loadinImg.css("-webkit-animation-play-state","running");
+					loadinImg.css("animation-play-state","running");
+				}
+				
+				//跳转
+				function Jump(){
+					$('.InterfaceBox').show();
+					Occlusion();
+					var bouncedBox2=$('.bouncedBox2');
+					var loadinImg=$('.loadinImg');
+					bouncedBox2.animate({
+							top:"-50%"
+					},400,function(){
+						loadinImg.css("-webkit-animation-play-state","paused");
+						loadinImg.css("animation-play-state","paused");
+					});
+				}
+
+		    	//分组功能面板	  
+				var str2="<div class='InterfaceBox'>\
+				  			 <div class='InterfaceBox2'>\
+				  			 	<div class='Mask'></div>\
+							     <div class='setBox'></div>\
+								  <div class='Grouping'>\
+										<div class='topT'>\
+											<span></span>\
+											<span>联系人</span>\
+											<span>添加</span>\
+										</div>\
+										<div class=''>\
+											<div class='Contacts'>\
+											<div class='topBox'>\
+												<a href='javascript:;'>\
+													<img class='searchImg' src="+ico[1]+" />\
+												</a>\
+												<div class='group'></div>\
+											</div>\
+											<ul class='specialBox'></ul>\
+											<ul class='ordinaryBox'></ul>\
+											</div>\
+										</div>\
+										<div class='bottomB'></div>\
+								   </div>\
+							 </div>\
+						 </div>";
+				$(".qqBox").append(str2);
+				$(".topT").find("span").eq(0).css("background-image","url("+ico[0]+")");
+			
+				//分组界面遮罩
+				function Occlusion(){
+					$('.Mask').animate({
+						opacity:"0"
+					},600,function(){
+						$('.Mask').hide();
+					})
+				}
+				
+				//生成头部主类
+				var fenZ="";
+				for (var i = 0; i < iocF.length; i++) {
+					fenZ+="<div class='lei'><img class ='leiImg' src='img/"+iocF[i]+"'/><span>"+ioctext[i]+"</span></div>"
+				}
+				$('.group').append(fenZ);
+				
+				//生成底部主类
+				var bott="";
+				for (var i = 0; i < bottomImg.length; i++) {
+					bott+="<div class='lei'><img class ='leiImg' src='img/"+bottomImg[i]+"'/><span>"+bottomText[i]+"</span></div>"
+				}
+				$('.bottomB').append(bott);
+				$('.bottomB').find("span").eq(1).css("color","#71d3f9");
+				
+				//特殊分组
+				var special="";
+				for (var i = 0; i < specialText.length; i++) {
+					special+="<li><img src='img/"+offoImg[0]+"'/><p>"+specialText[i]+"</p><span>0/0</span></li>"
+				}
+				$('.specialBox').append(special);
+				
+				//生成普通分组
+				var ordinary="";
+				for (var i = 0; i < ordinaryText.length; i++) {
+					ordinary+="<li><div class='title'><img src='img/"+offoImg[0]+"'/><p>"+ordinaryText[i]+"</p><span>0/1</span></div><div class='children'><span></span><p>"+naMe[i]+"</p></div></li>"
+				}
+				$('.ordinaryBox').append(ordinary);
+				$('.children').find("span").css("background-image","url("+ico[0]+")")
+		
+				//分组事件
+				var lis=$('.ordinaryBox').find("li");
+				for (var i = 0; i < lis.length; i++) {
+					lis[i].onoff=true;
+				}
+				lis.on("touchend",function(){
+					if(this.onoff){
+						$(this).find("img").attr("src","img/"+offoImg[1]+"");
+						$(this).find("div").eq(1).show();
+						this.onoff=false;
+					}else{
+						$(this).find("img").attr("src","img/"+offoImg[0]+"")
+						$(this).find("div").eq(1).hide();
+						this.onoff=true;
+					}
+				}); 
 			}
 		}
 		if(index===2){

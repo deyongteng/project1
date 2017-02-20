@@ -81,6 +81,15 @@ img{
     }
 }
 
+//QQ登录loding
+@-webkit-keyframes nameS{
+    0%{ -webkit-transform: rotateZ(0deg)}
+    100%{ -webkit-transform: rotateZ(360deg)}
+}
+@keyframes nameS{
+    0%{ transform: rotateZ(0deg)}
+    100%{ transform: rotateZ(360deg)}
+}
 .clearfix:after{
     content: "";
     display: block;
@@ -397,13 +406,16 @@ img{
 }
 .qqMrBox,
 .photoBox{
-     width: 320/@rem;
+    width: 320/@rem;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
     background-color: #eeedf2;
     text-align: center;
+}
+.logon{
+//  display: none;
 }
 .logon,
 .logon1{
@@ -612,14 +624,13 @@ img{
     position: absolute;
     left: 0;
     top: -50%;
-    
 }
+
 .bouncedBox2>span{
     display: inline-block;
     margin-left: 6/@rem;
-    color: #020202;
 }
-.bouncedBox2>span:nth-of-type(1){
+.tanK2{
     width: 20/@rem;
     height: 20/@rem;
     line-height: 20/@rem;
@@ -628,10 +639,45 @@ img{
     border-radius: 50%;
     color: #fff;
 }
+
+.loadinImg{
+    vertical-align: sub;
+    width: 20/@rem;
+    height: 20/@rem;
+    line-height: 20/@rem;
+    text-align: center;
+    border-radius: 50%;
+    background:url(../img/loding.png) no-repeat ;
+    background-size: 100% 100%;
+    -webkit-animation: 1s nameS linear infinite paused;
+    animation: 1s nameS linear infinite paused;
+}
 .qqBox2,
 #shade,
 #shade1{
 //  display: none;
+}
+//QQ内部界面
+.InterfaceBox{
+    -width: 320/@rem;
+    height: 100%;
+    -overflow: hidden;
+    display: none;
+}
+.InterfaceBox2{
+    width: 620/@rem;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.setBox{
+    width: 280/@rem;
+    height: 100%;
+    background: red;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 //QQ分组区
 .Grouping{
@@ -642,7 +688,6 @@ img{
     left: 0;
     top: 0;
     overflow: auto;
-    display: none;
 }
 .topT{
     width: 300/@rem;
@@ -650,7 +695,7 @@ img{
     height: 40/@rem;
     line-height:40/@rem;
     text-align: center;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     background-color:#12b7f5 ;
@@ -678,7 +723,7 @@ img{
     height: 50/@rem;
     padding-top:10/@rem ;
     background-color:#fff ;
-    position: fixed;
+    position: absolute;
     left: 0;
     bottom: 0;
 }
@@ -817,4 +862,13 @@ img{
 .children>p{
      display: inline-block;
 }
-
+.Mask{
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.6;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
