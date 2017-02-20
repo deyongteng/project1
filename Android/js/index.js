@@ -1028,6 +1028,7 @@
 						bott+="<div class='lei'><img class ='leiImg' src='img/"+bottomImg[i]+"'/><span>"+bottomText[i]+"</span></div>"
 					}
 					$('.bottomB').append(bott);
+					$('.bottomB').find("span").eq(1).css("color","#71d3f9");
 					
 					//特殊分组
 					var special="";
@@ -1039,15 +1040,27 @@
 					//生成普通分组
 					var ordinary="";
 					for (var i = 0; i < ordinaryText.length; i++) {
-						ordinary+="<li><img src='img/"+offoImg[0]+"'/><p>"+ordinaryText[i]+"</p><span>0/0</span><div></div></li>"
+						ordinary+="<li><div class='title'><img src='img/"+offoImg[0]+"'/><p>"+ordinaryText[i]+"</p><span>0/1</span></div><div class='children'><span></span><p>小明</p></div></li>"
 					}
 					$('.ordinaryBox').append(ordinary);
-					
+					$('.children').find("span").css("background-image","url("+ico[0]+")")
+			
 					//分组事件
 					var lis=$('.ordinaryBox').find("li");
+					for (var i = 0; i < lis.length; i++) {
+						lis[i].onoff=true;
+					}
 					lis.on("touchstart",function(){
-						console.log(this)
-					})
+						if(this.onoff){
+							$(this).find("img").attr("src","img/"+offoImg[1]+"");
+							$(this).find("div").eq(1).show();
+							this.onoff=false;
+						}else{
+							$(this).find("img").attr("src","img/"+offoImg[0]+"")
+							$(this).find("div").eq(1).hide();
+							this.onoff=true;
+						}
+					}); 
 			    })();
 			}
 		}
