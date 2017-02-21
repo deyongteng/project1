@@ -659,9 +659,9 @@ img{
 }
 //QQ内部界面
 .InterfaceBox{
-    -width: 320/@rem;
+    width: 320/@rem;
     height: 100%;
-    -overflow: hidden;
+    overflow: hidden;
     display: none;
 }
 .InterfaceBox2{
@@ -687,7 +687,7 @@ img{
     position: absolute;
     left: 0;
     top: 0;
-    overflow: auto;
+    overflow: hidden;
 }
 .topT{
     width: 300/@rem;
@@ -698,6 +698,7 @@ img{
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 2;
     background-color:#12b7f5 ;
 }
 .topT>span{
@@ -731,10 +732,16 @@ img{
     width: 20/@rem;
     height: 20/@rem;
 }
+.ContactsBox{
+    position: absolute;
+    top: 50/@rem;
+    left: 0;
+    right: 0;
+    bottom: 60/@rem;
+}
 .Contacts{
     width: 100%;
-    height: 100%;
-    margin-top: 50/@rem;
+    height: auto;
 }
 .topBox{
     width: 300/@rem;
@@ -871,4 +878,5 @@ img{
     left: 0;
     top: 0;
     z-index: 100;
+    display: none;
 }

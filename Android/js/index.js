@@ -112,6 +112,7 @@
 	 index=$(this).index();
 	var onoff=true;
 	$(".use").on("touchstart",function(ev){
+		console.log("进来了")
 		var index=$(this).index();
 		if(index===0){
 			if(onoff){
@@ -1047,16 +1048,16 @@
 											<span>联系人</span>\
 											<span>添加</span>\
 										</div>\
-										<div class=''>\
+										<div class='ContactsBox'>\
 											<div class='Contacts'>\
-											<div class='topBox'>\
-												<a href='javascript:;'>\
-													<img class='searchImg' src="+ico[1]+" />\
-												</a>\
-												<div class='group'></div>\
-											</div>\
-											<ul class='specialBox'></ul>\
-											<ul class='ordinaryBox'></ul>\
+												<div class='topBox'>\
+													<a href='javascript:;'>\
+														<img class='searchImg' src="+ico[1]+" />\
+													</a>\
+													<div class='group'></div>\
+												</div>\
+												<ul class='specialBox'></ul>\
+												<ul class='ordinaryBox'></ul>\
 											</div>\
 										</div>\
 										<div class='bottomB'></div>\
@@ -1070,7 +1071,7 @@
 				function Occlusion(){
 					$('.Mask').animate({
 						opacity:"0"
-					},600,function(){
+					},800,function(){
 						$('.Mask').hide();
 					})
 				}
@@ -1105,20 +1106,114 @@
 				$('.ordinaryBox').append(ordinary);
 				$('.children').find("span").css("background-image","url("+ico[0]+")")
 		
+				//上下滑动事件
+				var setY="";
+				var getY=0;
+				var lastTime=0;
+				var lastY = 0;
+				var lastDis=0;
+				var lastTimeDis=0;
+				var maxTranslate=0;
+				var Contacts=$('.Contacts');
+				var Slide=document.getElementsByClassName('Contacts')[0];
+				
+				Contacts.on("touchstart",function(ev){
+					ev.stopPropagation();
+					var parentH=document.getElementsByClassName('ContactsBox')[0].clientHeight;
+					var childrenH=document.getElementsByClassName('Contacts')[0].clientHeight;
+					maxTranslate=parentH-childrenH;
+					ev.stopPropagation();
+					setY=ev.changedTouches[0].pageY;
+					getY=css(Slide,"translateY");
+					lastY=getY;
+					lastTime=new Date().getTime();
+				});
+				
+				
+				var SlideS=true;//控制子级事件状态
+				Contacts.on("touchmove",function(ev){
+					SlideS=false;
+					var nowTime = new Date().getTime();
+					var valueY="";
+					ValueY=ev.changedTouches[0].pageY;
+					
+					var setValueY="";
+					setValueY=ValueY-setY;
+					
+					var setHdY="";
+					setHdY=getY+setValueY
+					css(Slide,"translateY",setHdY);
+					
+					lastDis=setHdY-lastY;
+					lastTimeDis=nowTime-lastTime;
+					lastTime=nowTime;
+					
+				});
+				
+				Contacts.on("touchend",function(){
+					SlideS=true;
+					var type="easeOut";
+					var speed=Math.round(lastDis/lastTimeDis*10);
+					speed = lastTimeDis <= 0?0 :speed;
+					var target = Math.round(speed*30 + css(Slide,"translateY"));
+					if(target > 0){
+						target = 0;
+						type = "backOut";
+					} else if(target < maxTranslate){
+						target = maxTranslate;
+						type = "backOut";
+					}
+					MTween({
+						el:Slide,
+						target:{translateY:target},
+						time:Math.round(Math.abs(target - css(Slide,"translateY"))*1.8),
+						type: type
+					});
+				});
+				
+				//左右滑动事件
+				$('.InterfaceBox2').on("touchstart",function(){
+					console.log("进来了")
+				})
+				
 				//分组事件
 				var lis=$('.ordinaryBox').find("li");
 				for (var i = 0; i < lis.length; i++) {
 					lis[i].onoff=true;
 				}
 				lis.on("touchend",function(){
-					if(this.onoff){
-						$(this).find("img").attr("src","img/"+offoImg[1]+"");
-						$(this).find("div").eq(1).show();
-						this.onoff=false;
-					}else{
-						$(this).find("img").attr("src","img/"+offoImg[0]+"")
-						$(this).find("div").eq(1).hide();
-						this.onoff=true;
+					if(SlideS){
+						if(this.onoff){
+							$(this).find("img").attr("src","img/"+offoImg[1]+"");
+							$(this).find("div").eq(1).show();
+							this.onoff=false;
+						}else{
+							$(this).find("img").attr("src","img/"+offoImg[0]+"")
+							$(this).find("div").eq(1).hide();
+							this.onoff=true;
+							
+							//重新计算一遍高度
+							var parentH=document.getElementsByClassName('ContactsBox')[0].clientHeight;
+							var childrenH=document.getElementsByClassName('Contacts')[0].clientHeight;
+							maxTranslate=parentH-childrenH;
+							var type="easeOut";
+							var speed=Math.round(lastDis/lastTimeDis*10);
+							speed = lastTimeDis <= 0?0 :speed;
+							var target = Math.round(speed*30 + css(Slide,"translateY"));
+							if(target > 0){
+								target = 0;
+								type = "backOut";
+							} else if(target < maxTranslate){
+								target = maxTranslate;
+								type = "backOut";
+							}
+							MTween({
+								el:Slide,
+								target:{translateY:target},
+								time:Math.round(Math.abs(target - css(Slide,"translateY"))*1.8),
+								type: type
+							});
+						}
 					}
 				}); 
 			}

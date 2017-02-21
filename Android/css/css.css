@@ -630,9 +630,9 @@ h3 {
   animation: 1s nameS linear infinite paused;
 }
 .InterfaceBox {
-  -width: 20rem;
+  width: 20rem;
   height: 100%;
-  -overflow: hidden;
+  overflow: hidden;
   display: none;
 }
 .InterfaceBox2 {
@@ -657,7 +657,7 @@ h3 {
   position: absolute;
   left: 0;
   top: 0;
-  overflow: auto;
+  overflow: hidden;
 }
 .topT {
   width: 18.75rem;
@@ -668,6 +668,7 @@ h3 {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 2;
   background-color: #12b7f5 ;
 }
 .topT > span {
@@ -701,10 +702,16 @@ h3 {
   width: 1.25rem;
   height: 1.25rem;
 }
+.ContactsBox {
+  position: absolute;
+  top: 3.125rem;
+  left: 0;
+  right: 0;
+  bottom: 3.75rem;
+}
 .Contacts {
   width: 100%;
-  height: 100%;
-  margin-top: 3.125rem;
+  height: auto;
 }
 .topBox {
   width: 18.75rem;
@@ -838,4 +845,5 @@ h3 {
   left: 0;
   top: 0;
   z-index: 100;
+  display: none;
 }
