@@ -1,4 +1,8 @@
 ;(function(){
+	document.addEventListener("touchstart",function(ev){
+		ev.preventDefault();
+	},false);
+	
 	var now = new Date();
 	var h = now.getHours();
 	var m = now.getMinutes();
@@ -112,8 +116,8 @@
 	 index=$(this).index();
 	var onoff=true;
 	$(".use").on("touchstart",function(ev){
-		console.log("进来了")
 		var index=$(this).index();
+		
 		if(index===0){
 			if(onoff){
 				onoff=false;
@@ -1132,6 +1136,7 @@
 				
 				var SlideS=true;//控制子级事件状态
 				Contacts.on("touchmove",function(ev){
+					ev.preventDefault();
 					SlideS=false;
 					var nowTime = new Date().getTime();
 					var valueY="";
@@ -1148,6 +1153,7 @@
 					lastTimeDis=nowTime-lastTime;
 					lastTime=nowTime;
 					
+					return false;
 				});
 				
 				Contacts.on("touchend",function(){
