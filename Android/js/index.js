@@ -115,8 +115,8 @@
 	$("#use_box").html(str);
 	 index=$(this).index();
 	var onoff=true;
-	$(".use").on("touchstart",function(ev){
-		var index=$(this).index();
+//	$(".use").on("touchstart",function(ev){
+//		var index=$(this).index();
 		
 		if(index===0){
 			if(onoff){
@@ -797,9 +797,9 @@
 	//			}
 			}
 		}
-		if(index===1){
-			if(onoff){
-				onoff=false;
+//		if(index===1){
+//			if(onoff){
+//				onoff=false;
 				$(".use").eq(1).append("</div><div class='qqBox'></div>");
 				
 				//登录面板
@@ -1058,7 +1058,19 @@
 				var str2="<div class='InterfaceBox'>\
 				  			 <div class='InterfaceBox2'>\
 				  			 	<div class='Mask'></div>\
-							     <div class='setBox'></div>\
+							     <div class='setBox'>\
+							     	<div class='information'>\
+							     		<div class='dataBox'>\
+							     			<div class='touImg'><span class='portrait'></span><span class='nickname'></span></div>\
+							     			<div class='styleDengj'><span class='vip'></span></div>\
+							     			<p></p>\
+							     		</div>\
+							     	</div>\
+							     	<div class='classification'>\
+							     		<div class='listBox'></div>\
+							     		<div class='valBottom'></div>\
+							     	</div>\
+							     </div>\
 								  <div class='Grouping'>\
 										<div class='topT'>\
 											<span></span>\
@@ -1088,7 +1100,7 @@
 				function Occlusion(){
 					$('.Mask').animate({
 						opacity:"0"
-					},800,function(){
+					},400,function(){
 						$('.Mask').hide();
 					})
 				}
@@ -1121,35 +1133,57 @@
 					ordinary+="<li><div class='title'><img src='img/"+offoImg[0]+"'/><p>"+ordinaryText[i]+"</p><span>0/1</span></div><div class='children'><span></span><p>"+naMe[i]+"</p></div></li>"
 				}
 				$('.ordinaryBox').append(ordinary);
-				$('.children').find("span").css("background-image","url("+ico[0]+")")
-		
+				$('.children').find("span").css("background-image","url("+ico[0]+")");
+				
+				//设置面板区
+				$('.information').css("background-image","url("+informationBG[0]+")");
+				$('.portrait').css("background-image","url("+ico[0]+")");
+				$('.nickname').html(nicknameText[0]);
+				$('.vip').css("background-image","url("+ipvImg[0]+")");
+				
+				var spans="";
+				for (var i = 0; i < GradeImg.length; i++) {
+					spans+="<span class='Grade' style='background-image:url("+GradeImg[i]+")'></span>"
+				}
+				$('.styleDengj').append(spans);
+				$('.dataBox').find("p").html(explain[0]);
+				var textH=$('.dataBox').find("p").html().substr(0,15)+'...';
+				$('.dataBox').find("p").html(textH);
+				
+				var lis="";
+				for (var i = 0; i < mvIocImg.length; i++) {
+					lis+="<li><span></span><span></span></li>";
+				}
+				$('.listBox').append(lis);
 				//上下滑动事件
 				var setY="";
 				var getY=0;
+				var setHdY
 				var lastTime=0;
 				var lastY = 0;
 				var lastDis=0;
 				var lastTimeDis=0;
-				var maxTranslate=0;
+				var maxTranslate=0;	
+				
 				var Contacts=$('.Contacts');
 				var Slide=document.getElementsByClassName('Contacts')[0];
+				var setBox=document.getElementsByClassName('setBox')[0];
+				var Grouping=document.getElementsByClassName('Grouping')[0];
+				var Mask=document.getElementsByClassName('Mask')[0];
 				
 				Contacts.on("touchstart",function(ev){
-					ev.stopPropagation();
 					var parentH=document.getElementsByClassName('ContactsBox')[0].clientHeight;
 					var childrenH=document.getElementsByClassName('Contacts')[0].clientHeight;
 					maxTranslate=parentH-childrenH;
-					ev.stopPropagation();
 					setY=ev.changedTouches[0].pageY;
 					getY=css(Slide,"translateY");
+
 					lastY=getY;
 					lastTime=new Date().getTime();
 				});
-				
-				
+				var tBOnoff=true;
 				var SlideS=true;//控制子级事件状态
-				Contacts.on("touchmove",function(ev){
-					ev.stopPropagation();
+				Contacts.on("touchmove",function(ev){				
 					SlideS=false;
 					var nowTime = new Date().getTime();
 					var valueY="";
@@ -1158,15 +1192,12 @@
 					var setValueY="";
 					setValueY=ValueY-setY;
 					
-					var setHdY="";
-					setHdY=getY+setValueY
+					setHdY="";
+					setHdY=getY+setValueY;
 					css(Slide,"translateY",setHdY);
-					
 					lastDis=setHdY-lastY;
 					lastTimeDis=nowTime-lastTime;
 					lastTime=nowTime;
-					
-					return false;
 				});
 				
 				Contacts.on("touchend",function(){
@@ -1188,13 +1219,75 @@
 						time:Math.round(Math.abs(target - css(Slide,"translateY"))*1.8),
 						type: type
 					});
+					
 				});
 				
 				//左右滑动事件
-				$('.InterfaceBox2').on("touchstart",function(){
-					console.log("进来了")
-				})
-				
+				leftRight();
+				function leftRight(){
+					var setX="";
+					var getX=0;
+					var getX2=0;
+					var setHdX;
+					
+					$('.InterfaceBox').on("touchstart",function(ev){
+						setX=ev.changedTouches[0].pageX;
+						getX=css(Grouping,"left");
+						getX2=css(setBox,"left");
+					})
+					$('.InterfaceBox').on("touchmove",function(ev){
+						ev.stopPropagation();
+						var valueX="";
+						valueX=ev.changedTouches[0].pageX;
+						
+						var setValueX="";
+						setValueX=valueX-setX;
+						
+						setHdX="";
+						setHdX=getX+setValueX;
+						console.log(setHdX)
+						if(setHdX>0){
+							$('.Mask').show();
+							css(Mask,"left",setHdX);
+							css(Grouping,"left",setHdX);
+						}else if(setHdX<50){
+							css(Mask,"left",0);
+							css(Grouping,"left",0);
+						}
+						if(setHdX<150){
+							$('.topT').css("background","#12b7f5");
+							
+						}else if(setHdX>150){
+							$('.topT').css("background","#fff");
+						}
+						if(setHdX>=260){
+							css(Mask,"left",260);
+							css(Grouping,"left",260);
+						}
+						return false;
+					});
+					
+					$('.InterfaceBox').on("touchend",function(ev){
+						if(setHdX<150){
+							$('.Grouping').animate({
+								left:"0"
+							},100);
+							$('.Mask').animate({
+								left:"0"
+							},100,function(){
+								$('.Mask').hide();
+							});
+							
+						}else if(setHdX>150){
+							$('.Grouping').animate({
+								left:"260"
+							},100)
+							$('.Mask').animate({
+								left:"260"
+							},100);
+						}
+					});
+				}
 				//分组事件
 				var lis=$('.ordinaryBox').find("li");
 				for (var i = 0; i < lis.length; i++) {
@@ -1235,15 +1328,15 @@
 						}
 					}
 				}); 
-			}
-		}
+//			}
+//		}
 		if(index===2){
 			$(".use").eq(2).append("<div class='qqMrBox'></div>")
 		}
 		if(index===3){
 			$(".use").eq(3).append("<div class='photoBox'></div>")
 		}
-	});
+//	});
 })()
 
 	

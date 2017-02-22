@@ -24,6 +24,9 @@ ul{
     padding: 0;
     list-style: none;
 }
+li{
+    list-style: none;
+}
 img{
     border: none;
     vertical-align: top
@@ -653,19 +656,20 @@ img{
     animation: 1s nameS linear infinite paused;
 }
 .qqBox2,
+.Grouping,
 #shade,
 #shade1{
-//  display: none;
+    display: none;
 }
 //QQ内部界面
 .InterfaceBox{
     width: 320/@rem;
     height: 100%;
     overflow: hidden;
-    display: none;
+//  display: none;
 }
 .InterfaceBox2{
-    width: 620/@rem;
+    width: 320/@rem;
     height: 100%;
     position: absolute;
     left: 0;
@@ -676,8 +680,104 @@ img{
     height: 100%;
     background: red;
     position: absolute;
+    left:0;
+    top: 0;
+}
+.information{
+    width: 280/@rem;
+    height: 180/@rem;
+    background: yellow;
+    position: absolute;
     left: 0;
     top: 0;
+    background-size:100% 100%;
+}
+.dataBox{
+    width: 200/@rem;
+    height: 90/@rem;
+    position: absolute;
+    left: 20/@rem;
+    bottom: 10%;
+}
+.classification{
+    width: 100%;
+    background: #0000FF;
+    position:absolute;
+    left: 0;
+    right: 0;
+    top: 31%;
+    bottom: 0%;
+}
+.listBox{
+    width: 240/@rem;
+    height: auto;
+    position: absolute;
+    left: 5%;
+    top: 10%;
+    background: yellow;
+}
+.listBox>li{
+    width: 240/@rem;
+    height: 40/@rem;
+}
+.touImg{
+    width: 100%;
+    height: 30/@rem;
+}
+.styleDengj{
+    width: 100%;
+    height: 35/@rem;
+    line-height:35/@rem;
+}
+.touImg>span,
+.styleDengj>span{
+    display: inline-block;
+}
+.portrait{
+    width: 30/@rem;
+    height: 30/@rem;
+    background-repeat: no-repeat;
+    background-position: center 0;
+    background-size:200%;
+    border-radius:50% ;
+    vertical-align: middle;
+    margin-right: 10/@rem;
+}
+.nickname{
+    height: 30/@rem;
+    line-height: 30/@rem;
+    font-size: 24/@rem;
+    color: #fff;
+}
+
+.vip{
+    width: 40/@rem;
+    height: 15/@rem;
+    background-repeat: no-repeat;
+    background-position: center 0;
+    background-size:100% 100%;
+    margin-right: 10/@rem;
+}
+.Grade{
+    width: 13/@rem;
+    height: 13/@rem;
+    background-size:100% 100%;
+    margin-right: 2/@rem;
+}
+.dataBox>p{
+    width: 100%;
+    height: 20/@rem;
+    font-size: 12/@rem;
+    line-height: 20/@rem;
+    color: #fff;
+}
+.valBottom{
+    width: 100%;
+    height: 40/@rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #959595;
 }
 //QQ分组区
 .Grouping{

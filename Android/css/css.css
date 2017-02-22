@@ -24,6 +24,9 @@ ul {
   padding: 0;
   list-style: none;
 }
+li {
+  list-style: none;
+}
 img {
   border: none;
   vertical-align: top;
@@ -629,14 +632,19 @@ h3 {
   -webkit-animation: 1s nameS linear infinite paused;
   animation: 1s nameS linear infinite paused;
 }
+.qqBox2,
+.Grouping,
+#shade,
+#shade1 {
+  display: none;
+}
 .InterfaceBox {
   width: 20rem;
   height: 100%;
   overflow: hidden;
-  display: none;
 }
 .InterfaceBox2 {
-  width: 38.75rem;
+  width: 20rem;
   height: 100%;
   position: absolute;
   left: 0;
@@ -649,6 +657,101 @@ h3 {
   position: absolute;
   left: 0;
   top: 0;
+}
+.information {
+  width: 17.5rem;
+  height: 11.25rem;
+  background: yellow;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-size: 100% 100%;
+}
+.dataBox {
+  width: 12.5rem;
+  height: 5.625rem;
+  position: absolute;
+  left: 1.25rem;
+  bottom: 10%;
+}
+.classification {
+  width: 100%;
+  background: #0000FF;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 31%;
+  bottom: 0%;
+}
+.listBox {
+  width: 15rem;
+  height: auto;
+  position: absolute;
+  left: 5%;
+  top: 10%;
+  background: yellow;
+}
+.listBox > li {
+  width: 15rem;
+  height: 2.5rem;
+}
+.touImg {
+  width: 100%;
+  height: 1.875rem;
+}
+.styleDengj {
+  width: 100%;
+  height: 2.1875rem;
+  line-height: 2.1875rem;
+}
+.touImg > span,
+.styleDengj > span {
+  display: inline-block;
+}
+.portrait {
+  width: 1.875rem;
+  height: 1.875rem;
+  background-repeat: no-repeat;
+  background-position: center 0;
+  background-size: 200%;
+  border-radius: 50% ;
+  vertical-align: middle;
+  margin-right: 0.625rem;
+}
+.nickname {
+  height: 1.875rem;
+  line-height: 1.875rem;
+  font-size: 1.5rem;
+  color: #fff;
+}
+.vip {
+  width: 2.5rem;
+  height: 0.9375rem;
+  background-repeat: no-repeat;
+  background-position: center 0;
+  background-size: 100% 100%;
+  margin-right: 0.625rem;
+}
+.Grade {
+  width: 0.8125rem;
+  height: 0.8125rem;
+  background-size: 100% 100%;
+  margin-right: 0.125rem;
+}
+.dataBox > p {
+  width: 100%;
+  height: 1.25rem;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  color: #fff;
+}
+.valBottom {
+  width: 100%;
+  height: 2.5rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #959595;
 }
 .Grouping {
   width: 20rem;
