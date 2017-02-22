@@ -1274,9 +1274,9 @@
 							$('.topT').css("background","#fff");
 						}
 						if(setHdX>=260){
-							css(Mask,"left",260);
+							$('.Mask').css("left","85%");
 							$('.Mask').css("opacity","0.6");
-							css(Grouping,"left",260);
+							$('.Grouping').css("left","85%");
 						}
 						return false;
 					});
@@ -1295,10 +1295,10 @@
 							
 						}else if(setHdX>150){
 							$('.Grouping').animate({
-								left:"260"
+								left:"85%"
 							},100)
 							$('.Mask').animate({
-								left:"260",
+								left:"85%",
 								opacity:"0.6"
 							},100);
 						}
