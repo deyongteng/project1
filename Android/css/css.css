@@ -632,16 +632,11 @@ h3 {
   -webkit-animation: 1s nameS linear infinite paused;
   animation: 1s nameS linear infinite paused;
 }
-.qqBox2,
-.Grouping,
-#shade,
-#shade1 {
-  display: none;
-}
 .InterfaceBox {
   width: 20rem;
   height: 100%;
   overflow: hidden;
+  display: none;
 }
 .InterfaceBox2 {
   width: 20rem;
@@ -676,7 +671,7 @@ h3 {
 }
 .classification {
   width: 100%;
-  background: #0000FF;
+  background-color: #fff;
   position: absolute;
   left: 0;
   right: 0;
@@ -687,13 +682,50 @@ h3 {
   width: 15rem;
   height: auto;
   position: absolute;
-  left: 5%;
-  top: 10%;
-  background: yellow;
+  left: 7%;
+  top: 4%;
+  background-color: #fff;
 }
 .listBox > li {
   width: 15rem;
   height: 2.5rem;
+  line-height: 2.5rem;
+}
+.listBox > li > span,
+.sueZ > span {
+  display: inline-block;
+}
+.listBox > li > span:nth-of-type(1) {
+  width: 1.25rem;
+  height: 1.25rem;
+  background-size: 100% 100% ;
+  margin-right: 1.25rem;
+  vertical-align: sub;
+}
+.sueZ {
+  width: 5.75rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+  margin-left: 0.125rem;
+  float: left;
+  font-size: 0.875rem;
+}
+.sueZ:nth-of-type(1) {
+  margin-left: 0;
+}
+.sueZ > span:nth-of-type(1) {
+  width: 1.25rem;
+  height: 1.25rem;
+  background-size: 100% 100% ;
+  vertical-align: sub;
+  margin-right: 0.625rem;
+}
+.sueT {
+  width: auto;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  font-weight: normal;
 }
 .touImg {
   width: 100%;
@@ -751,7 +783,6 @@ h3 {
   position: absolute;
   bottom: 0;
   left: 0;
-  background: #959595;
 }
 .Grouping {
   width: 20rem;
@@ -948,5 +979,4 @@ h3 {
   left: 0;
   top: 0;
   z-index: 100;
-  display: none;
 }

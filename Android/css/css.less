@@ -659,14 +659,14 @@ img{
 .Grouping,
 #shade,
 #shade1{
-    display: none;
+//  display: none;
 }
 //QQ内部界面
 .InterfaceBox{
     width: 320/@rem;
     height: 100%;
     overflow: hidden;
-//  display: none;
+    display: none;
 }
 .InterfaceBox2{
     width: 320/@rem;
@@ -701,7 +701,7 @@ img{
 }
 .classification{
     width: 100%;
-    background: #0000FF;
+    background-color: #fff;
     position:absolute;
     left: 0;
     right: 0;
@@ -712,13 +712,50 @@ img{
     width: 240/@rem;
     height: auto;
     position: absolute;
-    left: 5%;
-    top: 10%;
-    background: yellow;
+    left: 7%;
+    top: 4%;
+    background-color: #fff;
 }
 .listBox>li{
     width: 240/@rem;
     height: 40/@rem;
+    line-height:40/@rem;
+}
+.listBox>li>span,
+.sueZ>span{
+    display: inline-block;
+}
+.listBox>li>span:nth-of-type(1){
+    width: 20/@rem;
+    height: 20/@rem;
+    background-size:100% 100% ;
+    margin-right: 20/@rem;
+    vertical-align: sub;
+}
+.sueZ{
+    width: 92/@rem;
+    height: 40/@rem;
+    line-height: 40/@rem;
+    text-align: center;
+    margin-left: 2/@rem;
+    float: left;
+    font-size: 14/@rem;
+}
+.sueZ:nth-of-type(1){
+    margin-left: 0;
+}
+.sueZ>span:nth-of-type(1){
+    width: 20/@rem;
+    height: 20/@rem;
+    background-size:100% 100% ;
+    vertical-align: sub;
+    margin-right: 10/@rem;
+}
+.sueT{
+    width: auto;
+    height: 40/@rem;
+    line-height: 40/@rem;
+    font-weight: normal;
 }
 .touImg{
     width: 100%;
@@ -777,7 +814,6 @@ img{
     position: absolute;
     bottom: 0;
     left: 0;
-    background: #959595;
 }
 //QQ分组区
 .Grouping{
@@ -978,5 +1014,5 @@ img{
     left: 0;
     top: 0;
     z-index: 100;
-    display: none;
+//  display: none;
 }

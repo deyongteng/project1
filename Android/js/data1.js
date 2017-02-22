@@ -16,3 +16,5 @@ var GradeImg=["./img/dj.png","./img/dj.png","./img/dj.png"]
 var explain=["一个问题，百思解。一个创新，夜难眠。"]
 var mvIocImg=["./img/mvIoc1.png","./img/mvIoc2.png","./img/mvIoc3.png","./img/mvIoc4.png","./img/mvIoc5.png","./img/mvIoc6.png"];
 var mvIocText=["我的会员","QQ钱包","个性装扮","我的收藏","我的相册","我的文件"];
+var sueImg=["./img/sueImg1.png","./img/sueImg2.png"];
+var sueText=["设置","夜间","北京"];

@@ -115,8 +115,8 @@
 	$("#use_box").html(str);
 	 index=$(this).index();
 	var onoff=true;
-//	$(".use").on("touchstart",function(ev){
-//		var index=$(this).index();
+	$(".use").on("touchstart",function(ev){
+		var index=$(this).index();
 		
 		if(index===0){
 			if(onoff){
@@ -797,9 +797,9 @@
 	//			}
 			}
 		}
-//		if(index===1){
-//			if(onoff){
-//				onoff=false;
+		if(index===1){
+			if(onoff){
+				onoff=false;
 				$(".use").eq(1).append("</div><div class='qqBox'></div>");
 				
 				//登录面板
@@ -1141,20 +1141,31 @@
 				$('.nickname').html(nicknameText[0]);
 				$('.vip').css("background-image","url("+ipvImg[0]+")");
 				
-				var spans="";
+				var spanS="";
 				for (var i = 0; i < GradeImg.length; i++) {
-					spans+="<span class='Grade' style='background-image:url("+GradeImg[i]+")'></span>"
+					spanS+="<span class='Grade' style='background-image:url("+GradeImg[i]+")'></span>"
 				}
-				$('.styleDengj').append(spans);
+				$('.styleDengj').append(spanS);
 				$('.dataBox').find("p").html(explain[0]);
 				var textH=$('.dataBox').find("p").html().substr(0,15)+'...';
 				$('.dataBox').find("p").html(textH);
 				
+				//生成我的分类
 				var lis="";
 				for (var i = 0; i < mvIocImg.length; i++) {
-					lis+="<li><span></span><span></span></li>";
+					lis+="<li><span style='background-image:url("+mvIocImg[i]+")'></span><span>"+mvIocText[i]+"</span></li>";
 				}
 				$('.listBox').append(lis);
+				
+				var sue="";
+				var sue2="<div class='sueZ'><strong class='sueT'>"+sueText[2]+"</strong></div>";
+				for (var i = 0; i < sueImg.length; i++) {
+					sue+="<div class='sueZ'><span style='background-image:url("+sueImg[i]+")'></span><span>"+sueText[i]+"</span></div>"
+				}
+				
+				$('.valBottom').append(sue);
+				$('.valBottom').append(sue2);
+				
 				//上下滑动事件
 				var setY="";
 				var getY=0;
@@ -1248,10 +1259,12 @@
 						console.log(setHdX)
 						if(setHdX>0){
 							$('.Mask').show();
+							$('.Mask').css("opacity","0.6");
 							css(Mask,"left",setHdX);
 							css(Grouping,"left",setHdX);
 						}else if(setHdX<50){
 							css(Mask,"left",0);
+							$('.Mask').css("opacity","0")
 							css(Grouping,"left",0);
 						}
 						if(setHdX<150){
@@ -1262,6 +1275,7 @@
 						}
 						if(setHdX>=260){
 							css(Mask,"left",260);
+							$('.Mask').css("opacity","0.6");
 							css(Grouping,"left",260);
 						}
 						return false;
@@ -1276,6 +1290,7 @@
 								left:"0"
 							},100,function(){
 								$('.Mask').hide();
+								$('.Mask').css("opacity","0");
 							});
 							
 						}else if(setHdX>150){
@@ -1283,7 +1298,8 @@
 								left:"260"
 							},100)
 							$('.Mask').animate({
-								left:"260"
+								left:"260",
+								opacity:"0.6"
 							},100);
 						}
 					});
@@ -1328,15 +1344,15 @@
 						}
 					}
 				}); 
-//			}
-//		}
+			}
+		}
 		if(index===2){
 			$(".use").eq(2).append("<div class='qqMrBox'></div>")
 		}
 		if(index===3){
 			$(".use").eq(3).append("<div class='photoBox'></div>")
 		}
-//	});
+	});
 })()
 
 	
