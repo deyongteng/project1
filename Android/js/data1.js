@@ -1,3 +1,5 @@
+var bgmS=["./bgm/bgm.mp3"];
+var bgmBg=["./bgm/music.png","./bgm/music_pause.png"];
 var data1=["./img/logo.png","./img/qqlogo.png","./img/qqmr.png","./img/photo.png","./img/photo.png"];
 var texts=["VR安踏","QQ","QQ音乐","相册","相册"];
 var ico=["./img/qqlogo.png","./img/topLogo0.png"];
