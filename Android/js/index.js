@@ -122,8 +122,8 @@ var obj = {
 	$("#use_box").html(str);
 	 index=$(this).index();
 	obj.onoff=true;
-	$(".use").on("touchstart",function(ev){
-		var index=$(this).index();
+//	$(".use").on("touchstart",function(ev){
+//		var index=$(this).index();
 		if(index===0){
 			if(obj.onoff){
 				obj.onoff=false;
@@ -136,16 +136,16 @@ var obj = {
 				qqIndex();
 			}
 		}
-		if(index===2){
-			if(obj.onoff){
-				obj.onoff=false;
+//		if(index===2){
+//			if(obj.onoff){
+//				obj.onoff=false;
 				animationD();
-			}
-		}
+//			}
+//		}
 		if(index===3){
 			$(".use").eq(3).append("<div class='photoBox'></div>")
 		}
-	});
+//	});
 })()
 
 	
