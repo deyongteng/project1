@@ -7,7 +7,7 @@ var obj = {
 	},{
 		passive:false
 	});
-	
+
 	var now = new Date();
 	var h = now.getHours();
 	var m = now.getMinutes();
@@ -137,7 +137,10 @@ var obj = {
 			}
 		}
 		if(index===2){
-			$(".use").eq(2).append("<div class='qqMrBox'></div>")
+			if(obj.onoff){
+				obj.onoff=false;
+				animationD();
+			}
 		}
 		if(index===3){
 			$(".use").eq(3).append("<div class='photoBox'></div>")

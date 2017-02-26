@@ -88,3 +88,8 @@ var strenter2="<div class='InterfaceBox'>\
 			   </div>\
 		 </div>\
 	 </div>";
+
+
+//动画
+//第一屏
+var animati="<ul class='Modular'></ul>"

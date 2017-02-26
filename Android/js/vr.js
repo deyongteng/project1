@@ -1,4 +1,5 @@
 function vrAnTa(){
+	
 	//生成内部结构
 	$(".use").eq(0).append("<div id='view'></div>");
 	$("#view").html(htm);
@@ -74,10 +75,9 @@ function vrAnTa(){
 			time:1000,
 			type:"easeOut",
 			callBack:function(){
-			if(view){
+				if(view){
 					view.removeChild(logo1);
-			}
-			
+				}
 				css(logo2,"opacity",100);
 				MTween({
 					el:logo2,
@@ -313,6 +313,11 @@ function vrAnTa(){
 	
 	//滑动事件
 	function setDarg(){
+		document.addEventListener("touchstart",function(ev){
+			ev.preventDefault();
+		},{
+			passive:false
+		});
 		var pano = document.querySelector('#pano');
 		var view = document.querySelector('#view');
 		var panoBg=document.querySelector("#panoBg");
@@ -371,6 +376,8 @@ function vrAnTa(){
 				dis.x=300;
 			};
 			css(tZ,"translateZ",startZ-Math.abs(dis.x));
+		},{
+			passive:false
 		});
 		view.addEventListener("touchend",function(ev){
 			ev.stopPropagation();
