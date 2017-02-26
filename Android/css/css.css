@@ -990,11 +990,6 @@ h3 {
   top: 0;
   z-index: 100;
 }
-.qqBox2,
-#shade,
-#shade1 {
-  display: none;
-}
 .Modular {
   width: 20rem;
   height: 100%;
