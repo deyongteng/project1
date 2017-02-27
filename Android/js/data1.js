@@ -47,7 +47,10 @@ var  animation={
 				title:[
 					"./animation/img1/title/bgnuber.png",
 					"./animation/img1/title/bgText.png",
-					"./animation/img1/title/LightSpot.png",
+					"年度盛典",
+					"./animation/img1/title/LightSpot.png"
+				],
+				title1:[
 					"./animation/img1/title/titleBg1.png",
 					"./animation/img1/title/titleBg2.png"
 				],
