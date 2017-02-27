@@ -43,10 +43,10 @@ function animationD(){
 		},1000);
 		
 		//爆炸效果出场
-//		setTimeout(function(){
-//			yanc();
-//		},3000);
-		yanc();
+		setTimeout(function(){
+			yanc();
+		},3000);
+//		yanc();
 		function yanc(){
 			$(".bg5Box").hide();
 			$(".time").hide();
