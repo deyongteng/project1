@@ -400,6 +400,7 @@ img{
     background-size:100% 100% ;
 }
 
+//============================================================================================
 //QQ应用
 .qqBox{
     width: 320/@rem;
@@ -1020,17 +1021,16 @@ img{
 .qqBox2,
 #shade,
 #shade1{
-//  display: none;
+    display: none;
 }
-
+//====================================================================================================
 //animation区
 .Modular{
     width: 100%;
     height: 100%;
-    position: relative;
+    position: absolute;
     left: 0;
-    top: 0;
-    display: none;
+    top: 100%;
     overflow: hidden;
 }
 
@@ -1240,7 +1240,7 @@ img{
     height: 100%;
     position: absolute;
     left: 0;
-    top: 27%
+    top: 27%;
 }
 .tite3Box{
     width: 226px;
@@ -1299,9 +1299,115 @@ img{
     width:159px;
     height: 173px;
     margin: -114px auto;
+    -webkit-animation: 3s ops linear paused;
     animation: 3s ops linear paused;
 }
 .tite6Box>img{
     width:159px;
     height: 173p;
+}
+
+//第二屏
+.bgBox2{
+    overflow: hidden;
+}
+.bgBox2,
+.bg2_1Box,
+.bg2_2Box,
+.bg2_3Box{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.bg2_1Box>img,
+.bg2_2Box>img{
+    width: 100%;
+    height: 100%;
+}
+@-webkit-keyframes ops2{
+    0%{opacity: 0;};
+    30%{opacity: 1;};
+    60%{opacity: 0;};
+    80%{opacity: 1;};
+    100%{opacity: 0;};
+}
+@keyframes ops2{
+    0%{opacity: 0;};
+    30%{opacity: 1;};
+    60%{opacity: 0;};
+    80%{opacity: 1;};
+    100%{opacity: 0;};
+}
+.bg2_3Box{
+    width: 100%;
+    height: 360/@rem;
+    top: -6/@rem;
+    -webkit-animation: 3s ops2 linear infinite;
+    animation: 3s ops2 linear infinite;
+}
+.bg2_3Box>img{
+    width: 406/@rem;
+    height: 360/@rem;
+}
+.bg2_4Box{
+    position: absolute;
+    left: -8%;
+    bottom: -8%;
+}
+.bg2_4Box>img{
+    width: 376/@rem;
+    height: 263/@rem;
+}
+.titleTop{
+    width: 271/@rem;
+    height: 60/@rem;
+    position: absolute;
+    top: 7%;
+    left: 7%; 
+}
+.titleTop>span{
+    position: absolute;
+    width: 35/@rem;
+    height: 35/@rem;
+}
+.titleTop>span:nth-of-type(1){
+    left: 21%;
+    top: 28%;
+    border: 2px solid rgb(255, 217, 129);
+}
+.titleTop>span:nth-of-type(2){
+    width: 128/@rem;
+    height: 37/@rem;
+    left: 28%;
+    top: 48%;
+    font-family: F_rBB61z;
+    font-size: 32/@rem;
+    color: rgb(255, 217, 129);
+    z-index: 1;
+}
+.titleTop>span:nth-of-type(3){
+    width: 15/@rem;
+    height: 15/@rem;
+    right: 16%;
+    bottom: -8%;
+    background-color: rgb(255, 217, 129);
+}
+
+.textContent{
+    width: 240/@rem;
+    height: 278/@rem;
+    padding: 10/@rem;
+    position: absolute;
+    left: 10%;
+    top: 20%;
+    
+}
+.textContent>span{
+    display: block;
+    font-size: 12px;
+    line-height: 24px;
+    color: rgb(234, 213, 167);
+    text-align: left;
 }

@@ -91,5 +91,16 @@ var strenter2="<div class='InterfaceBox'>\
 
 
 //动画
-//第一屏
-var animati="<ul class='Modular'></ul>"
+var animati="<div class='Modular'></div>\
+			 <div class='Modular'></div>\
+			 <div class='Modular'></div>\
+			 <div class='Modular'></div>\
+			 <div class='Modular'></div>";
+			 
+var titleHTML2="<li class='titleTop clearfix'>\
+					<span class='top1'></span>\
+					<span class='top2'></span>\
+					<span class='top3'></span>\
+				</li>\
+				<li class='textContent'></li>"
+
