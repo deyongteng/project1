@@ -67,10 +67,20 @@ var  animation={
 					"二、年会目的：1.感谢公司员工一年来的辛勤工作，增进领导与员工间的互动与交流；2.通过举办一次全新的不同感觉的年会，让员工看到公司的实力以及增强其对未来的信心；3.通过年会的举办，了解员工对公司未来发展的期望；"
 				],
 				img3:[
-					"./animation/img3/bg.png",
-					"./animation/img3/border.png.png",
+					"./animation/img3/bg1.png",
+					"./animation/img3/bg2.png",
+					"./animation/img3/bg3.png",
+					"./animation/img3/earth.png",
+					"./animation/img3/bg4.png",
+					"./animation/img3/border.png",
+					"参会领导",
 					"./animation/img3/bottom.png",
-					"./animation/img3/img.jpg"
+					"华语流行歌手、词曲创作者、音乐制作人。"
+				],
+				name:[
+					"./animation/img3/border.png",
+					"./animation/img3/img.jpg",
+					"林俊杰",
 				],
 				img4:[
 					"./animation/img4/Bar1.png",

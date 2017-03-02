@@ -102,12 +102,13 @@ img{
 #interface{
     width: 320/@rem;
     height: 100%;
+    position: relative;
+    left: 0;
+    top: 0;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     overflow: hidden;
     display: none;
-//  background: url(../img/rbg.jpg) no-repeat;
-//  background-size: 100% 100%;
 }
 #menu{
     width: 28/@rem;
@@ -1021,17 +1022,18 @@ img{
 .qqBox2,
 #shade,
 #shade1{
-    display: none;
+//  display: none;
 }
 //====================================================================================================
 //animation区
 .Modular{
     width: 100%;
-    height: 100%;
+    height: 568px;
     position: absolute;
     left: 0;
-    top: 100%;
+    top: 0;
     overflow: hidden;
+//  display: none;
 }
 
 //第一屏
@@ -1059,7 +1061,8 @@ img{
 .bg3Box{
     width: 100%;
     height: 100%;
-    animation: 3s scale  linear;
+    -webkit-animation: 3s scale  linear ;
+    animation: 3s scale  linear ;
     top: -1%;
 }
 .bg3Box>img{
@@ -1299,8 +1302,8 @@ img{
     width:159px;
     height: 173px;
     margin: -114px auto;
-    -webkit-animation: 3s ops linear paused;
-    animation: 3s ops linear paused;
+    -webkit-animation: 3s ops linear ;
+    animation: 3s ops linear ;
 }
 .tite6Box>img{
     width:159px;
@@ -1312,9 +1315,14 @@ img{
     overflow: hidden;
 }
 .bgBox2,
+.bgBox3,
 .bg2_1Box,
 .bg2_2Box,
-.bg2_3Box{
+.bg2_3Box,
+.bg3_1Box,
+.bg3_2Box,
+.bg3_3Box,
+.bg3_4Box{
     width: 100%;
     height: 100%;
     position: absolute;
@@ -1322,7 +1330,9 @@ img{
     top: 0;
 }
 .bg2_1Box>img,
-.bg2_2Box>img{
+.bg2_3Box>img,
+.bg3_1Box>img,
+.bg3_3Box>img,{
     width: 100%;
     height: 100%;
 }
@@ -1340,14 +1350,15 @@ img{
     80%{opacity: 1;};
     100%{opacity: 0;};
 }
-.bg2_3Box{
+.bg2_2Box,
+.bg3_2Box{
     width: 100%;
     height: 360/@rem;
     top: -6/@rem;
     -webkit-animation: 3s ops2 linear infinite;
     animation: 3s ops2 linear infinite;
 }
-.bg2_3Box>img{
+.bg2_2Box>img{
     width: 406/@rem;
     height: 360/@rem;
 }
@@ -1410,4 +1421,118 @@ img{
     line-height: 24px;
     color: rgb(234, 213, 167);
     text-align: left;
+}
+
+//第三屏
+.bg3_5Box,
+.bg3_6Box,
+.bg3_7Box,
+.bg3_8Box,
+.bg3_9Box,
+.bg3_10Box,
+.bg3_11Box{
+    position: absolute;
+}
+.bg3_4Box{
+    width: 376px;
+    height: 263px;
+    left: -12px;
+    top: -94px;
+    vertical-align: middle;
+}
+.bg3_4Box>img{
+    width: 370px;
+    height: 264px;
+    margin: 0 auto;
+    -webkit-transform: rotateX(180deg) rotateY(180deg);
+    transform: rotateX(180deg) rotateY(180deg);
+    
+}
+.bg3_5Box{
+    width: 75px;
+    height: 127px;
+    left: 12%;
+    top: 55px;
+}
+.bg3_5Box>img{
+    width: 75px;
+    height: 127px;
+}
+.bg3_6Box{
+    width: 252px;
+    height:25px;
+    top: 22%;
+}
+.bg3_7Box{
+    width: 100%;
+    height: 46px;
+    line-height: 36px;
+    font-size:32px;
+    color: rgb(255, 217, 129);
+    font-family: F_rBB61z;
+    top: 102px;
+    left: 9px;
+}
+.bg3_8Box{
+    width: 377px;
+    height: 364px;
+    bottom: 0px;
+}
+.bg3_8Box>img{
+    width: 574.69px;
+    height:364px;
+    margin-left: -99px
+}
+.bg3_9Box{
+    width: 100%;
+    height:20px;
+    bottom: 69px;
+}
+.bg3_9Box>span{
+    font-size: 12px;
+    color: rgb(234, 213, 167);
+    font-family: F_rBB61z;
+    margin: 0 auto;
+}
+.bg3_10Box{
+    width: 100%;
+    height: 234px;
+    top: 160px;
+    text-align: center;
+}
+.bg3_10Box>span,
+.bg3_10Box>div{
+    width: 169px;
+    height: 234px;
+    position: absolute;
+    
+}
+.bg3_10Box>span>img{
+    width: 169px;
+    height: 234px;
+}
+.bg3_10Box>span:nth-of-type(1){
+    left: 26%;
+}
+.bg3_10Box>span:nth-of-type(2){
+    height: 224px;
+    top: 11px;
+    left: 26%;
+}
+.bg3_10Box>span:nth-of-type(2)>img{
+    width: 156px;
+    height: 212px;
+}
+.bg3_10Box>div{
+    width: 320px;
+    height: 24px;
+    bottom: 0px;
+    text-align: center;
+    bottom: -30px;
+}
+.bg3_10Box>div>span{
+     font-size: 24px;
+     font-family: F_rBB61z;
+     color: rgb(255, 217, 129);
+     margin-left: 28px;
 }
