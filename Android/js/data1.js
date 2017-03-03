@@ -83,9 +83,31 @@ var  animation={
 					"林俊杰",
 				],
 				img4:[
+					"./animation/img4/bg1.png",
+					"./animation/img4/bg2.png",
+					"./animation/img4/bg3.png",
+					"./animation/img4/earth.png",
+					"./animation/img3/bottom.png",
+					"年会流程",
 					"./animation/img4/Bar1.png",
-					"./animation/img4/Bar2.png",
+					"./animation/img4/Bar2.png"
+				],
+				img4Light:[
 					"./animation/img4/LightSpot.png"
+				],
+				img4TopText:[
+					"2014 &nbsp; July",
+					"2014 &nbsp; August",
+					"2015 &nbsp; March",
+					"2015 &nbsp; August",
+					"2014 &nbsp; November"
+				],
+				img4BottomText:[
+					"易企秀团队创意初成",
+					"易企秀产品web1.0正式上线",
+					"光明日报采用易企秀报道两会",
+					"易企秀正式成立公司",
+					"获得千万美金级别A轮融资"
 				],
 				img5:[
 					"./animation/img5/bg1.png",

@@ -152,8 +152,8 @@ function animationD(){
 		},2000);
 	}
 	//第一屏总动画函数；
-	diYiPing();
-	function diYiPing(){
+	diYiPingDh();
+	function diYiPingDh(){
 		daojishi();
 		$(".titeBox").hide();
 		$(".nameEarth").hide();
@@ -188,7 +188,7 @@ function animationD(){
 	$(".textContent").append(pHtml);
 	
 	//第二屏动画函数（头部、中间、底部动画）
-	function diErPingDh(){
+	function diErPingDh(){ 
 		TweenMax.staggerFrom(".top1", 0.8, {z:-100, scale:0.6, opacity:0, delay:0.8, ease:Elastic.liner});
 		TweenMax.staggerFrom(".top2", 0.8, {z:100, scale:2, opacity:0, delay:0.5, ease:Elastic.liner});
 		TweenMax.staggerFrom(".top3", 0.8, {z:-100, scale:0.6, opacity:0, delay:0.8, ease:Elastic.liner});
@@ -222,13 +222,109 @@ function animationD(){
  	diSanPingHtml+="<li class='bg3_10Box'>";
  	diSanPingHtml+="<span><img src='"+nameLin[0]+"'/></span>";
 	diSanPingHtml+="<span><img src='"+nameLin[1]+"'/></span>";
-	diSanPingHtml+="<div><span>"+nameLin[2]+"<span></div>";
+	diSanPingHtml+="<div class='nameL'><span>"+nameLin[2]+"<span></div>";
  	diSanPingHtml+="</li>";
  	
  	diSanPingHtml+="</ul>";
  	jQ_Modular.eq(2).append(diSanPingHtml);
-	$(".bg3_6Box").append(svgHtml)
-	jQ_Modular.eq(2).hide();
+	$(".bg3_6Box").append(svgHtml);
+	
+	//第三屏动画
+	function diSanPingDh(){
+		TweenMax.staggerFrom(".bg3_4Box", 1, {y:-800, scale:1, opacity:0, delay:0.3, ease:Elastic.liner});
+		TweenMax.staggerFrom(".bg3_5Box", 2, {y:0, scale:1, opacity:0, delay:0.5, ease:Elastic.liner});
+		TweenMax.staggerFrom(".bg3_6Box", 1, {x:-100, scale:1, opacity:1, delay:0.5, ease:Elastic.easeOut});
+		TweenMax.staggerFrom(".bg3_7Box", 1, {y:-100, scale:1, opacity:0, delay:0.5, ease:Elastic.easeOut});
+		TweenMax.staggerFrom(".bg3_8Box", 1, {y:300, scale:1, opacity:0,  rotation:0, delay:0.5, ease:Elastic.liner});
+		TweenMax.staggerFrom(".bg3_9Box", 1, {y:300, scale:1, opacity:0,  rotation:0, delay:1.5, ease:Elastic.liner});
+		TweenMax.staggerFrom(".bg3_10Box", 0.5, {x:-100, scale:1, opacity:0, rotation:-90, delay:1.5,  ease:Elastic.liner});
+		TweenMax.staggerFrom(".nameL", 1, {x:0, scale:0.1, opacity:0,  rotation:0, delay:2, ease:Elastic.liner});
+	}
+	
+	//第四屏
+	var diSiPing=animation.img4;
+	var lightD=animation.img4Light;
+	var topText=animation.img4TopText;
+	var bttomText=animation.img4BottomText;
+	var diSiPingHtml="";
+	
+	//生成背景和标题
+	diSiPingHtml+="<ul class='bgBox4'>";
+	for (var i = 0; i < diSiPing.length-1; i++) {
+		if(i<3){
+			diSiPingHtml+="<li class='bg3_"+(i+1)+"Box bg4_"+(i+1)+"Box'>";
+			diSiPingHtml+="<img src='"+diSiPing[i]+"'/>";
+			diSiPingHtml+="</li>";
+		}else if(i===3){
+			diSiPingHtml+="<li class='bg3_4Box bg4_"+(i+1)+"Box'>";
+			diSiPingHtml+="<img src='"+diSiPing[i]+"'/>";
+			diSiPingHtml+="</li>";
+		}else if(i===4){
+			diSiPingHtml+="<li class='bg3_8Box bg4_"+(i+1)+"Box'>";
+			diSiPingHtml+="<img src='"+diSiPing[i]+"'/>";
+			diSiPingHtml+="</li>";
+		}else if(i===5){
+			diSiPingHtml+="<li class='bg3_7Box bg4_"+(i+1)+"Box'>";
+			diSiPingHtml+="<span>"+diSiPing[i]+"</span>";
+			diSiPingHtml+="</li>";
+		}else{
+			diSiPingHtml+="<li class='bg4_"+(i+1)+"Box'>";
+			diSiPingHtml+="<img src='"+diSiPing[i]+"'/>";
+			diSiPingHtml+="</li>";
+		}
+	}
+	
+	//生成光点
+	for (var i = 0; i < 5; i++) {
+		diSiPingHtml+="<li class='bg4_Box bg4_"+(i+8)+"Box'>";
+		diSiPingHtml+="<img src='"+lightD[0]+"'/>";
+		diSiPingHtml+="</li>";
+	}
+	
+	//生成横光线
+	for (var i = 0; i < 5; i++) {
+		diSiPingHtml+="<li class='bor bg4_"+(i+13)+"Box'>";
+		diSiPingHtml+="<img src='"+diSiPing[7]+"'/>";
+		diSiPingHtml+="</li>";
+	}
+	//生成文字内容
+	for (var i = 0; i < 5; i++) {
+		diSiPingHtml+="<li class='ImgTextBox textBox"+(i+1)+"'>";
+		diSiPingHtml+="<span>"+topText[i]+"</span>";
+		diSiPingHtml+="<span>"+bttomText[i]+"</span>";
+		diSiPingHtml+="</li>";
+	}
+	diSiPingHtml+="</ul>";
+	jQ_Modular.eq(3).append(diSiPingHtml);
+	
+	//第三屏动画
+	
+	function diSiPingDh(){
+		TweenMax.staggerFrom(".bg3_4Box", 1, {y:-800, scale:1, opacity:0, delay:0, ease:Elastic.liner});//头部球体
+		TweenMax.staggerFrom(".bg3_7Box", 1, {y:-100, scale:1, opacity:0, delay:0.8, ease:Elastic.easeOut});//头部标题
+		TweenMax.staggerFrom(".bg3_8Box", 1, {y:300, scale:1, opacity:0,  rotation:0, delay:0, ease:Elastic.liner});//底部图片
+		
+		TweenMax.staggerFrom(".bg4_7Box", 1, {y:-800, scale:1, opacity:0,  rotation:0, delay:1, ease:Elastic.liner});//中部竖光线
+		TweenMax.staggerFrom(".bg4_8Box", 1, {y:0, scale:0.5, opacity:0,  rotation:0, delay:2, ease:Elastic.easeOut});//光点1
+		TweenMax.staggerFrom(".bg4_9Box", 1, {y:0, scale:0.5, opacity:0,  rotation:0, delay:2.1, ease:Elastic.easeOut});//光点2
+		TweenMax.staggerFrom(".bg4_10Box", 1, {y:0, scale:0.5, opacity:0,  rotation:0, delay:2.2, ease:Elastic.easeOut});//光点3
+		TweenMax.staggerFrom(".bg4_11Box", 1, {y:0, scale:0.5, opacity:0,  rotation:0, delay:2.3, ease:Elastic.easeOut});//光点4
+		TweenMax.staggerFrom(".bg4_12Box", 1, {y:0, scale:0.5, opacity:0,  rotation:0, delay:2.4, ease:Elastic.easeOut});////光点5
+		
+		TweenMax.staggerFrom(".bg4_13Box", 1, {y:0, scale:1, opacity:0,  rotation:0, delay:2.5, ease:Elastic.easeOut});//第一横光线
+		TweenMax.staggerFrom(".bg4_14Box", 1, {y:0, scale:1, opacity:0,  rotation:0, delay:2.6, ease:Elastic.easeOut});//第二横光线
+		TweenMax.staggerFrom(".bg4_15Box", 1, {y:0, scale:1, opacity:0,  rotation:0, delay:2.7, ease:Elastic.easeOut});//第三横光线
+		TweenMax.staggerFrom(".bg4_16Box", 1, {y:0, scale:1, opacity:0,  rotation:0, delay:2.8, ease:Elastic.easeOut});//第四横光线
+		TweenMax.staggerFrom(".bg4_17Box", 1, {y:0, scale:1, opacity:0,  rotation:0, delay:2.9, ease:Elastic.easeOut});//第五横光线
+		
+		TweenMax.staggerFrom(".textBox1", 1, {x:300, scale:1, opacity:1,  rotation:0, delay:2.4, ease:Elastic.liner});//右侧第一部分文字
+		TweenMax.staggerFrom(".textBox2", 1, {x:-300, scale:1, opacity:1,  rotation:0, delay:2.6, ease:Elastic.liner});//左侧第一部分文字
+		TweenMax.staggerFrom(".textBox3", 1, {x:300, scale:1, opacity:1,  rotation:0, delay:2.8, ease:Elastic.liner});//右侧第二部分文字
+		TweenMax.staggerFrom(".textBox4", 1, {x:-300, scale:1, opacity:1,  rotation:0, delay:3, ease:Elastic.liner});//左侧第二部分文字
+		TweenMax.staggerFrom(".textBox5", 1, {x:300, scale:1, opacity:1,  rotation:0, delay:3.2, ease:Elastic.liner});//右侧第三部分文字
+	}
+//	jQ_Modular.eq(3).show();
+
 //上下滑动事件
 	
 	var setValueY="";
@@ -240,56 +336,84 @@ function animationD(){
 	var getStartY="";
 	var getChaZ="";
 	var getChaZiY="";
-	var jQ_Modular0=$(".Modular").eq(0)
-	var jQ_Modular1=$(".Modular").eq(1)
-	jQ_Modular0.css("zIndex",2);
-	jQ_Modular1.css("zIndex",1);
-	
+	jQ_Modular.eq(0).css("zIndex",2);
+	jQ_Modular.eq(1).css("zIndex",1);
 	jQ_animatiBox.on("touchstart",function(ev){
 		height=document.getElementById("interface").offsetHeight;
 		getStartY=ev.changedTouches[0].pageY;
 	});
 	var onoff=true;
+	var num=0;
 	jQ_animatiBox.on("touchmove",function(ev){
 		var getMoveY="";
 		getMoveY=ev.changedTouches[0].pageY;
 		setValueY=getMoveY-getStartY;
 		if(setValueY<0){
-			jQ_Modular0.css("zIndex",1);
-			jQ_Modular1.css("zIndex",2);
-			jQ_Modular1.css("top","100%");
-			jQ_Modular1.css("top",setValueY+height);
 			if(onoff){
-				diErPingDh();	//第二屏总动画函数；
+				num++;
+				if(num>3){
+					num=3;
+					alert("已经是最后一张了");
+					return;
+				}
+				if(num==1){
+					diErPingDh();//第一屏函数动画
+				}else if(num==2){
+					diSanPingDh();//第二屏函数动画
+				}else if(num==3){
+					diSiPingDh();//第三屏函数动画
+				}
+					//第二屏总动画函数；
 				onoff=false;
 			}
+			jQ_Modular.css("zIndex",0);
+			jQ_Modular.eq(num-1).css("zIndex",2);
+			jQ_Modular.eq(num).css("zIndex",3);
+			jQ_Modular.eq(num).css("top","100%");
+			jQ_Modular.eq(num).css("top",setValueY+height);
 			
 		}
 		if(setValueY>0){
-			jQ_Modular1.css("zIndex",1);
-			jQ_Modular0.css("zIndex",2);
-			jQ_Modular1.css("top","0");
-			jQ_Modular0.css("top",setValueY-height);
 			if(onoff){
-				diYiPing();//第一屏总动画函数；
+				num--;
+				if(num<0){
+					num=0;
+					alert("已经是第一张了");
+					return;
+				}
+				if(num==3){
+					diErPingDh();//第三屏函数动画
+				}else if(num==2){
+					diSanPingDh();//第二屏函数动画
+				}else if(num==1){
+					diErPingDh();//第一屏函数动画
+				}else if(num==0){
+					diYiPingDh();//第0屏函数动画
+				}
+				
 				onoff=false;
 			}
+			jQ_Modular.css("zIndex",0);
+			jQ_Modular.eq(num).css("zIndex",3);
+			jQ_Modular.eq(num+1).css("zIndex",2);
+			jQ_Modular.eq(num).css("top",-height);
+			jQ_Modular.eq(num).css("top",setValueY-height);
 		}
 		
 	});
 	jQ_animatiBox.on("touchend",function(){
 		onoff=true;
 		if(setValueY<10){
-			jQ_Modular1.animate({
+			jQ_Modular.eq(num).animate({
 				top:0
 			},500,function(){
-				jQ_Modular0.css("top",-height);
+				jQ_Modular.eq(num-1).css("top",-height);
 			});
 		}else{
-			jQ_Modular0.animate({
+			jQ_Modular.eq(num).animate({
 				top:0
 			},500,function(){
-				jQ_Modular1.css("top",height);
+				jQ_Modular.eq(num+1).css("top",height);
 			});
 		}
 	});
