@@ -415,6 +415,7 @@ img {
   left: 0;
   background-color: #eeedf2;
   text-align: center;
+  background: #000;
 }
 .logon,
 .logon1 {
@@ -1000,6 +1001,7 @@ h3 {
   left: 0;
   top: 0;
   overflow: hidden;
+  margin: auto 0;
 }
 .bgBox,
 .bg1Box,
@@ -1251,7 +1253,7 @@ h3 {
 }
 .tite5Box > span {
   background-color: initial;
-  font-size: 3rem;
+  font-size: 2.375rem;
   font-family: "F_rBB61z";
   color: #ffe2a0;
 }

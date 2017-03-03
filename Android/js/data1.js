@@ -47,7 +47,7 @@ var  animation={
 				title:[
 					"./animation/img1/title/bgnuber.png",
 					"./animation/img1/title/bgText.png",
-					"年度盛典",
+					"前端生涯",
 					"./animation/img1/title/LightSpot.png"
 				],
 				title1:[
@@ -61,10 +61,10 @@ var  animation={
 					"./animation/img2/earth.png"
 				],
 				img2Text:[
-					"领导寄语",
-					"2012年已经到来，为展现公司日新月异、蓬勃发展的良好风貌，增进友谊、增强凝聚力，公司决定于 年 月 日举办一场联欢会来答谢各位员工一年来辛勤的工作与默默付出。",
-					"一、年会主题：增加公司于员工之间的凝聚力",
-					"二、年会目的：1.感谢公司员工一年来的辛勤工作，增进领导与员工间的互动与交流；2.通过举办一次全新的不同感觉的年会，让员工看到公司的实力以及增强其对未来的信心；3.通过年会的举办，了解员工对公司未来发展的期望；"
+					"我的规划",
+					"2016年已经到来，为展现并提示自己的技能、能够为公司带来更大利润，能够更加完善自己、能够创新更多，所以在新的一年里总结了过往经验，归纳为二。",
+					"一、树立一个方向：有方向才能知道自己该往哪走、往哪完善、怎么给公司带来利润",
+					"二、从哪里出发：1.了解公司需求，了解工作环境，了解前沿技术与行情动态；2.从用户体验出发优化产品，研究对公司有利的技术，做高性能低消耗；3.发现问题、分析问题、解决问题、与团队共进退；"
 				],
 				img3:[
 					"./animation/img3/bg1.png",
@@ -73,14 +73,14 @@ var  animation={
 					"./animation/img3/earth.png",
 					"./animation/img3/bg4.png",
 					"./animation/img3/border.png",
-					"参会领导",
+					"个人信息",
 					"./animation/img3/bottom.png",
-					"华语流行歌手、词曲创作者、音乐制作人。"
+					"一个问题百思解、一个创新夜难眠。"
 				],
 				name:[
 					"./animation/img3/border.png",
 					"./animation/img3/img.jpg",
-					"林俊杰",
+					"滕德勇",
 				],
 				img4:[
 					"./animation/img4/bg1.png",
@@ -88,7 +88,7 @@ var  animation={
 					"./animation/img4/bg3.png",
 					"./animation/img4/earth.png",
 					"./animation/img3/bottom.png",
-					"年会流程",
+					"时光之轴",
 					"./animation/img4/Bar1.png",
 					"./animation/img4/Bar2.png"
 				],

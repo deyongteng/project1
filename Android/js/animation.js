@@ -11,7 +11,7 @@ function animationD(){
 				setHeight=documentH-568;
 				console.log(setHeight)
 				$('#interface').css("margin","auto 0");
-				$('animatiBox').css("margin","auto 0");
+				$('.animatiBox').css("margin","auto 0");
 			}
 			if(documentH<568){
 				setHeight=568-documentH;
@@ -21,8 +21,8 @@ function animationD(){
 			}
 			if(documentW>320){
 				setWidth=(documentW-320)/2;
-				$('animatiBox').css("width","320px");
-				$('animatiBox').css("padding","0"+ setWidth);
+				$('.animatiBox').css("width","320px");
+				$('.animatiBox').css("padding","0"+ setWidth);
 			}
 	},{
 		passive:false
