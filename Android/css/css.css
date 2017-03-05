@@ -996,13 +996,13 @@ h3 {
 }
 .Modular {
   width: 100%;
-  height: 568px;
+  height: 35.5rem;
   position: absolute;
   left: 0;
   top: 0;
   overflow: hidden;
-  margin: auto 0;
 }
+/*第一屏*/
 .bgBox,
 .bg1Box,
 .bg3Box {
@@ -1191,27 +1191,27 @@ h3 {
   z-index: 3;
 }
 .tite1Box {
-  width: 130px;
-  height: 225px;
+  width: 8.125rem;
+  height: 14.0625rem;
   position: absolute;
   left: 21%;
   top: 12%;
 }
 .tite1Box > img {
-  width: 130px;
-  height: 225px;
+  width: 8.125rem;
+  height: 14.0625rem;
 }
 .tite2Box {
-  width: 126px;
-  height: 143px;
+  width: 7.875rem;
+  height: 8.9375rem;
   position: absolute;
   left: 22%;
   top: 12%;
   z-index: 10;
 }
 .tite2Box > img {
-  width: 126px;
-  height: 143px;
+  width: 7.875rem;
+  height: 8.9375rem;
 }
 .textImg {
   width: 100%;
@@ -1221,27 +1221,27 @@ h3 {
   top: 27%;
 }
 .tite3Box {
-  width: 226px;
-  height: 111px;
+  width: 14.125rem;
+  height: 6.9375rem;
   margin: 0 auto;
 }
 .tite3Box > img {
-  width: 228px;
-  height: 111px;
+  width: 14.25rem;
+  height: 6.9375rem;
 }
 .tite4Box {
-  width: 224px;
-  height: 61px;
+  width: 14rem;
+  height: 3.8125rem;
   margin: 0 auto;
 }
 .tite4Box > img {
-  width: 224px;
-  height: 61px;
+  width: 14rem;
+  height: 3.8125rem;
 }
 .tite5Box {
   width: 100%;
   height: 4.875rem;
-  margin-top: 95px;
+  margin-top: 5.9375rem;
 }
 @-webkit-font-face {
   font-family: 'F_rBB61z';
@@ -1313,6 +1313,8 @@ h3 {
 }
 .bgBox2,
 .bgBox3,
+.bgBox4,
+.bgBox5,
 .bg2_1Box,
 .bg2_2Box,
 .bg2_3Box,
@@ -1432,8 +1434,8 @@ h3 {
 }
 .textContent > span {
   display: block;
-  font-size: 12px;
-  line-height: 24px;
+  font-size: 0.75rem;
+  line-height: 1.5rem;
   color: #ead5a7;
   text-align: left;
 }
@@ -1447,108 +1449,106 @@ h3 {
   position: absolute;
 }
 .bg3_4Box {
-  width: 376px;
-  height: 263px;
+  width: 23.5rem;
+  height: 16.4375rem;
   left: -12px;
   top: -94px;
   vertical-align: middle;
 }
 .bg3_4Box > img {
-  width: 370px;
-  height: 264px;
+  width: 23.125rem;
+  height: 16.5rem;
   margin: 0 auto;
   -webkit-transform: rotateX(180deg) rotateY(180deg);
   transform: rotateX(180deg) rotateY(180deg);
 }
 .bg3_5Box {
-  width: 75px;
-  height: 127px;
+  width: 4.6875rem;
+  height: 7.9375rem;
   left: 12%;
-  top: 55px;
+  top: 3.4375rem;
 }
 .bg3_5Box > img {
-  width: 75px;
-  height: 127px;
+  width: 4.6875rem;
+  height: 7.9375rem;
 }
 .bg3_6Box {
-  width: 252px;
+  width: 15.75rem;
   height: 25px;
   top: 22%;
   left: 4%;
 }
 .bg3_7Box {
   width: 100%;
-  height: 46px;
-  line-height: 36px;
-  font-size: 32px;
+  height: 2.875rem;
+  line-height: 2.25rem;
+  font-size: 2rem;
   color: #ffd981;
   font-family: F_rBB61z;
-  top: 102px;
-  left: 9px;
+  top: 6.375rem;
 }
 .bg3_8Box {
-  width: 377px;
-  height: 364px;
-  bottom: 0px;
-  left: -51px;
+  width: 23.5625rem;
+  height: 22.75rem;
+  bottom: 0rem;
+  left: -3.1875rem;
 }
 .bg3_8Box > img {
-  width: 574.69px;
-  height: 364px;
-  margin-left: -99px;
+  width: 35.918125rem;
+  height: 22.75rem;
+  margin-left: -6.1875rem;
 }
 .bg3_9Box {
   width: 100%;
-  height: 20px;
-  bottom: 105px;
-  left: 10px;
+  height: 1.25rem;
+  bottom: 6.625rem;
+  left: 0.625rem;
 }
 .bg3_9Box > span {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: #ead5a7;
   font-family: F_rBB61z;
   margin: 0 auto;
 }
 .bg3_10Box {
   width: 100%;
-  height: 234px;
-  top: 160px;
+  height: 14.625rem;
+  top: 10rem;
   text-align: center;
 }
 .bg3_10Box > span,
 .bg3_10Box > div {
-  width: 169px;
-  height: 234px;
+  width: 10.5625rem;
+  height: 14.625rem;
   position: absolute;
 }
 .bg3_10Box > span > img {
-  width: 169px;
-  height: 234px;
+  width: 10.5625rem;
+  height: 14.625rem;
 }
 .bg3_10Box > span:nth-of-type(1) {
   left: 26%;
 }
 .bg3_10Box > span:nth-of-type(2) {
-  height: 224px;
-  top: 11px;
+  height: 14rem;
+  top: 0.6875rem;
   left: 26%;
 }
 .bg3_10Box > span:nth-of-type(2) > img {
-  width: 156px;
-  height: 212px;
+  width: 9.75rem;
+  height: 13.25rem;
 }
 .bg3_10Box > div {
-  width: 320px;
-  height: 24px;
+  width: 20rem;
+  height: 1.5rem;
   bottom: 0px;
   text-align: center;
-  bottom: -38px;
+  bottom: -2.375rem;
 }
 .bg3_10Box > div > span {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-family: F_rBB61z;
   color: #ffd981;
-  margin-left: 28px;
 }
 .bg4_7Box,
 .bg4_Box,
@@ -1556,105 +1556,241 @@ h3 {
   position: absolute;
 }
 .bg4_7Box {
-  width: 2px;
-  height: 294px;
-  left: 50%;
-  top: 152px;
+  width: 0.125rem;
+  height: 18.375rem;
+  left: 48%;
+  top: 9.5rem;
 }
 .bg4_7Box > img {
-  width: 2px;
-  height: 294px;
+  width: 0.125rem;
+  height: 18.375rem;
 }
 .bg4_Box {
-  width: 42px;
-  height: 72px;
-  left: 44.5%;
-  top: 139px;
+  width: 2.625rem;
+  height: 4.5rem;
+  left: 42%;
+  top: 8.6875rem;
 }
 .bg4_Box > img {
-  width: 42px;
-  height: 72px;
+  width: 2.625rem;
+  height: 4.5rem;
 }
 .bg4_9Box {
-  top: 200px;
+  top: 12.5rem;
 }
 .bg4_10Box {
-  top: 272px;
+  top: 17rem;
 }
 .bg4_11Box {
-  top: 344px;
+  top: 21.5rem;
 }
 .bg4_12Box {
-  top: 416px;
+  top: 26rem;
 }
 .bor {
   position: absolute;
-  width: 2px;
-  height: 115px;
+  width: 0.125rem;
+  height: 7.1875rem;
 }
 .bor > img {
-  width: 2px;
-  height: 115px;
+  width: 0.125rem;
+  height: 7.1875rem;
   -webkit-transform: rotateZ(90deg);
   transform: rotateZ(90deg);
 }
 .bg4_13Box,
 .bg4_15Box,
 .bg4_17Box {
-  right: 29%;
-  top: 111px;
+  right: 30%;
+  top: 6.9375rem;
 }
 .bg4_14Box,
 .bg4_16Box {
-  left: 29%;
-  top: 172px;
+  left: 28%;
+  top: 10.75rem;
 }
 .bg4_15Box {
-  top: 244px;
+  top: 15.25rem;
 }
 .bg4_16Box {
-  top: 316px;
+  top: 19.75rem;
 }
 .bg4_17Box {
-  top: 388px;
+  top: 24.25rem;
 }
 .ImgTextBox {
   position: absolute;
-  width: 108px;
-  height: 62px;
-  padding: .3em 15px;
+  width: 6.75rem;
+  height: 3.875rem;
+  padding: 0.3em 0.9375rem;
 }
 .ImgTextBox > span {
   text-align: left;
   display: block;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: #ead5a7;
-  line-height: 30px;
+  line-height: 1.875rem;
 }
 .ImgTextBox > span:nth-of-type(2) {
-  line-height: 16px;
+  line-height: 1rem;
 }
 .textBox1,
 .textBox3,
 .textBox5 {
   right: 9%;
-  top: 136px;
+  top: 8.5rem;
 }
 .textBox2,
 .textBox4 {
-  left: 10%;
-  top: 197px;
+  left: 7%;
+  top: 12.3125rem;
 }
 .textBox2 > span,
 .textBox4 > span {
   text-align: right;
 }
 .textBox3 {
-  top: 270px;
+  top: 16.875rem;
 }
 .textBox4 {
-  top: 341px;
+  top: 21.3125rem;
 }
 .textBox5 {
-  top: 414px;
+  top: 25.875rem;
+}
+.bg5_4Box,
+.bg5_5Box,
+.bg5_6Box,
+.bg5_7Box,
+.bg5_8Box,
+.bg5_9Box,
+.bg5_10Box,
+.bg5_11Box,
+.Worke1Box {
+  position: absolute;
+}
+.bg5_4Box {
+  width: 8.875rem;
+  height: 15.5rem;
+  left: 5.8%;
+  top: 1.25rem;
+}
+.bg5_4Box > img {
+  width: 8.875rem;
+  height: 15.5rem;
+}
+.bg5_5Box {
+  width: 15.375rem;
+  height: 22.3125rem;
+  left: 12%;
+  top: 4rem;
+}
+.bg5_5Box > img {
+  width: 15.375rem;
+  height: 22.3125rem;
+  -webkit-transform: rotateZ(90deg);
+  transform: rotateZ(90deg);
+}
+.bg5_6Box {
+  width: 8.75rem;
+  height: 9.9375rem;
+  top: 1.25rem;
+  left: 6.8%;
+  z-index: 1;
+}
+.bg5_6Box > img {
+  width: 8.75rem;
+  height: 9.9375rem;
+}
+.bg5_7Box {
+  width: 8.1875rem;
+  height: 4rem;
+  top: 3.9375rem;
+  left: 49%;
+}
+.bg5_7Box > img {
+  width: 8.1875rem;
+  height: 4rem;
+}
+.bg5_8Box {
+  width: 12.1875rem;
+  height: 2.875rem;
+  top: 7.75rem;
+  right: 2%;
+}
+.bg5_8Box > span {
+  font-size: 2rem;
+  font-family: F_rBB61z;
+  color: #ffd981;
+}
+.bg5_10Box {
+  width: 20rem;
+  height: 2.875rem;
+  bottom: 8.0625rem;
+}
+.bg5_10Box > span {
+  font-size: 2rem;
+  font-family: F_rBB61z;
+  color: #ffd981;
+}
+@-webkit-keyframes ops3 {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes ops3 {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.bg5_11Box {
+  width: 9.9375rem;
+  height: 10.8125rem;
+  bottom: 3rem;
+  left: 25%;
+  -webkit-animation: 2s ops3 linear infinite;
+  animation: 2s ops3 linear infinite;
+}
+.bg5_11Box > img {
+  width: 9.9375rem;
+  height: 10.8125rem;
+}
+.Worke1Box {
+  width: 14.0625rem;
+  height: 9.625rem;
+  top: 10.375rem;
+  left: 14%;
+}
+.Worke1Box > img {
+  width: 14rem;
+  height: 9.375rem;
+}
+.qqBox2,
+#shade,
+#shade1 {
+  display: none;
 }

@@ -224,7 +224,7 @@ function vrAnTa(){
 		createPano();
 		MTween({
 			el:tZ,
-			target:{translateZ:200},
+			target:{translateZ:360},
 			time:3600,
 			type:"easeBoth"
 		});

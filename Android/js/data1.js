@@ -115,7 +115,14 @@ var  animation={
 					"./animation/img5/bg3.png",
 					"./animation/img5/bg4.png",
 					"./animation/img5/border.png",
-					"./animation/img5/logo_hd.png",
-					"./animation/img5/marker.png"
+					"./animation/img5/bg5.png",
+					"./animation/img5/bg6.png",
+					"我的作品",
+					"./animation/img5/bottom.png",
+					"欢迎你来欣赏",
+					"./animation/img5/LightSpot.png"
+				],
+				worksS:[
+					"./animation/works/tab.gif",
 				]
 			   }

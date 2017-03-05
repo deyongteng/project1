@@ -1,32 +1,26 @@
 function animationD(){
 	$(".use").eq(2).append("<div class='animatiBox'></div>");
 	$('.animatiBox').append(animati);
-
-	window.addEventListener("load", function() {
-			var documentH=document.documentElement.offsetHeight;
-			var documentW=document.documentElement.offsetWidth;
-			var setHeight;
-			var setWidth;
-			if(documentH>568){
-				setHeight=documentH-568;
-				console.log(setHeight)
-				$('#interface').css("margin","auto 0");
-				$('.animatiBox').css("margin","auto 0");
+//	setLoding()
+	function setLoding(){
+		var data=[];
+		var nub=0;
+		for(var s in animation){
+			data=data.concat(animation[s]);
+		}
+		for (var i = 0; i < data.length; i++) {
+			var img=new Image();
+			img.src=data[i];
+			img.onload=function(){
+				nub++;
+//				logoText.innerHTML="已加载"+(Math.floor(nub/data.length*100))+"%";
+				if(nub===data.length){
+					anmt();
+					$(".Modular").show();
+				}
 			}
-			if(documentH<568){
-				setHeight=568-documentH;
-				console.log(setHeight)
-				$('#interface').css("bottom",-setHeight);
-				$('animatiBox').css("bottom",-setHeight);
-			}
-			if(documentW>320){
-				setWidth=(documentW-320)/2;
-				$('.animatiBox').css("width","320px");
-				$('.animatiBox').css("padding","0"+ setWidth);
-			}
-	},{
-		passive:false
-	});
+		}
+	}
 	//第一屏
 	//生成第一层背景
 	var diYiPingHtml="";
@@ -196,37 +190,37 @@ function animationD(){
 		TweenMax.staggerFrom(".bg2_4Box", 0.8, {y:1000, scale:1, opacity:0, delay:0.5, ease:Elastic.liner});
 	}
 
- 	//第三屏
- 	var diSanPing=animation.img3;
- 	var nameLin=animation.name;
- 	var diSanPingHtml="";
- 	diSanPingHtml+="<ul class='bgBox3'>";
- 	for (var i = 0; i < diSanPing.length; i++) {
- 		 if(i===8){
- 			diSanPingHtml+="<li class='bg3_"+(i+1)+"Box'>";
- 			diSanPingHtml+="<span>"+diSanPing[i]+"</span>";
- 			diSanPingHtml+="</li>";
- 		}else  if(i===6){
- 			diSanPingHtml+="<li class='bg3_"+(i+1)+"Box'>";
- 			diSanPingHtml+="<span>"+diSanPing[i]+"</span>";
- 			diSanPingHtml+="</li>";
- 		}else if(i===5){
- 			diSanPingHtml+="<li class='bg3_"+(i+1)+"Box'></li>";
- 		}else{
- 			diSanPingHtml+="<li class='bg3_"+(i+1)+"Box'>";
+   	//第三屏
+   	var diSanPing=animation.img3;
+   	var nameLin=animation.name;
+   	var diSanPingHtml="";
+   	diSanPingHtml+="<ul class='bgBox3'>";
+   	for (var i = 0; i < diSanPing.length; i++) {
+   		 if(i===8){
+   			diSanPingHtml+="<li class='bg3_"+(i+1)+"Box'>";
+   			diSanPingHtml+="<span>"+diSanPing[i]+"</span>";
+   			diSanPingHtml+="</li>";
+   		}else  if(i===6){
+   			diSanPingHtml+="<li class='bg3_"+(i+1)+"Box'>";
+   			diSanPingHtml+="<span>"+diSanPing[i]+"</span>";
+   			diSanPingHtml+="</li>";
+   		}else if(i===5){
+   			diSanPingHtml+="<li class='bg3_"+(i+1)+"Box'></li>";
+   		}else{
+   			diSanPingHtml+="<li class='bg3_"+(i+1)+"Box'>";
 	 		diSanPingHtml+="<img src='"+diSanPing[i]+"'/>";
 	 		diSanPingHtml+="</li>";
- 		}
- 	}
- 	//个人照片 （考虑到移动端定位的差距，临时方法：三合一）；
- 	diSanPingHtml+="<li class='bg3_10Box'>";
- 	diSanPingHtml+="<span><img src='"+nameLin[0]+"'/></span>";
+   		}
+   	}
+   	//个人照片 （考虑到移动端定位的差距，临时方法：三合一）；
+   	diSanPingHtml+="<li class='bg3_10Box'>";
+   	diSanPingHtml+="<span><img src='"+nameLin[0]+"'/></span>";
 	diSanPingHtml+="<span><img src='"+nameLin[1]+"'/></span>";
 	diSanPingHtml+="<div class='nameL'><span>"+nameLin[2]+"<span></div>";
- 	diSanPingHtml+="</li>";
- 	
- 	diSanPingHtml+="</ul>";
- 	jQ_Modular.eq(2).append(diSanPingHtml);
+   	diSanPingHtml+="</li>";
+   	
+   	diSanPingHtml+="</ul>";
+   	jQ_Modular.eq(2).append(diSanPingHtml);
 	$(".bg3_6Box").append(svgHtml);
 	
 	//第三屏动画
@@ -297,10 +291,9 @@ function animationD(){
 	diSiPingHtml+="</ul>";
 	jQ_Modular.eq(3).append(diSiPingHtml);
 	
-	//第三屏动画
-	
+	//第四屏动画
 	function diSiPingDh(){
-		TweenMax.staggerFrom(".bg3_4Box", 1, {y:-800, scale:1, opacity:0, delay:0, ease:Elastic.liner});//头部球体
+		TweenMax.staggerFrom(".bg4_4Box", 1, {y:-800, scale:1, opacity:0, delay:0, ease:Elastic.liner});//头部球体
 		TweenMax.staggerFrom(".bg3_7Box", 1, {y:-100, scale:1, opacity:0, delay:0.8, ease:Elastic.easeOut});//头部标题
 		TweenMax.staggerFrom(".bg3_8Box", 1, {y:300, scale:1, opacity:0,  rotation:0, delay:0, ease:Elastic.liner});//底部图片
 		
@@ -323,7 +316,58 @@ function animationD(){
 		TweenMax.staggerFrom(".textBox4", 1, {x:-300, scale:1, opacity:1,  rotation:0, delay:3, ease:Elastic.liner});//左侧第二部分文字
 		TweenMax.staggerFrom(".textBox5", 1, {x:300, scale:1, opacity:1,  rotation:0, delay:3.2, ease:Elastic.liner});//右侧第三部分文字
 	}
-//	jQ_Modular.eq(3).show();
+	
+	//第五屏
+	var diWuPing=animation.img5;
+	var diWuPingWorke=animation.worksS;
+	var diWuPingHtml="";
+	diWuPingHtml+="<ul class='bgBox5'>";
+		for (var i = 0; i < diWuPing.length; i++) {
+			
+			if(i===9){
+				diWuPingHtml+="<li class='bg5_"+(i+1)+"Box''>";
+				diWuPingHtml+="<span>"+diWuPing[i]+"</span>";
+				diWuPingHtml+="</li>";
+			}else if(i===8){
+				diWuPingHtml+="<li class='bg3_8Box bg5_"+(i+1)+"Box'>";
+				diWuPingHtml+="<img src='"+diWuPing[i]+"'/>";
+				diWuPingHtml+="</li>";
+			}else if(i===7){
+				diWuPingHtml+="<li class='bg5_"+(i+1)+"Box''>";
+				diWuPingHtml+="<span>"+diWuPing[i]+"</span>";
+				diWuPingHtml+="</li>";
+			}else if(i<=2){
+				diWuPingHtml+="<li class='bg3_"+(i+1)+"Box bg5_"+(i+1)+"Box''>";
+				diWuPingHtml+="<img src='"+diWuPing[i]+"'/>";
+				diWuPingHtml+="</li>";
+			}else{
+				diWuPingHtml+="<li class='bg5_"+(i+1)+"Box'>";
+				diWuPingHtml+="<img src='"+diWuPing[i]+"'/>";
+				diWuPingHtml+="</li>";
+			}
+			
+		}
+		for (var i = 0; i < diWuPingWorke.length; i++) {
+			diWuPingHtml+="<li class='Worke"+(i+1)+"Box''>";
+			diWuPingHtml+="<img src='"+diWuPingWorke[i]+"'/>";
+			diWuPingHtml+="</li>";
+		}
+	diWuPingHtml+="</ul>";
+	jQ_Modular.eq(4).append(diWuPingHtml)
+//	jQ_Modular.eq(4).show();
+	
+		//第五屏动画
+		function diWuPingDh(){
+				TweenMax.staggerFrom(".bg5_4Box", 1, {x:-100, scale:1, opacity:0,  rotation:0, delay:1, ease:Elastic.easeOut});
+				TweenMax.staggerFrom(".bg5_5Box", 3, {y:0, scale:1, opacity:0,  rotationX:80, delay:1.5, ease:Elastic.easeOut});
+				TweenMax.staggerFrom(".bg5_6Box", 1, {x:-100, scale:1, opacity:0,  rotation:0, delay:1, ease:Elastic.easeOut});
+				TweenMax.staggerFrom(".bg5_7Box", 1, {y:-100, scale:1, opacity:0,  rotation:0, delay:1, ease:Elastic.easeOut});
+				TweenMax.staggerFrom(".bg5_8Box", 1, {y:100, scale:1, opacity:0,  rotation:0, delay:1, ease:Elastic.easeOut});
+				TweenMax.staggerFrom(".Worke1Box", 2.5, {y:0, scale:1, opacity:0,  rotationX:-180, rotationY:-180,  delay:1.5, ease:Elastic.easeOut});
+				TweenMax.staggerFrom(".bg5_10Box", 1, {y:200, scale:1, opacity:0,  rotationX:0, rotationY:0,  delay:2, ease:Elastic.liner});
+				TweenMax.staggerFrom(".bg5_11Box", 1, {y:500, scale:0.6, opacity:0,  rotationX:0, rotationY:0,  delay:2.5, ease:Elastic.liner});
+				
+		}
 
 //上下滑动事件
 	
@@ -336,14 +380,16 @@ function animationD(){
 	var getStartY="";
 	var getChaZ="";
 	var getChaZiY="";
+	var onoff=true;
+	var num=0;
+	var Mod_length=jQ_Modular.length-1;
 	jQ_Modular.eq(0).css("zIndex",2);
 	jQ_Modular.eq(1).css("zIndex",1);
 	jQ_animatiBox.on("touchstart",function(ev){
 		height=document.getElementById("interface").offsetHeight;
 		getStartY=ev.changedTouches[0].pageY;
 	});
-	var onoff=true;
-	var num=0;
+	
 	jQ_animatiBox.on("touchmove",function(ev){
 		var getMoveY="";
 		getMoveY=ev.changedTouches[0].pageY;
@@ -351,17 +397,19 @@ function animationD(){
 		if(setValueY<0){
 			if(onoff){
 				num++;
-				if(num>3){
-					num=3;
+				if(num>Mod_length){
+					num=4;
 					alert("已经是最后一张了");
 					return;
 				}
 				if(num==1){
-					diErPingDh();//第一屏函数动画
+					diErPingDh();//第二屏函数动画
 				}else if(num==2){
-					diSanPingDh();//第二屏函数动画
+					diSanPingDh();//第三屏函数动画
 				}else if(num==3){
-					diSiPingDh();//第三屏函数动画
+					diSiPingDh();//第四屏函数动画
+				}else if(num==4){
+					diWuPingDh();//第五屏函数动画
 				}
 					//第二屏总动画函数；
 				onoff=false;
@@ -381,14 +429,16 @@ function animationD(){
 					alert("已经是第一张了");
 					return;
 				}
-				if(num==3){
-					diErPingDh();//第三屏函数动画
+				if(num==4){
+					diWuPingDh();//第五屏函数动画
+				}else if(num==3){
+					diSiPingDh();//第四屏函数动画
 				}else if(num==2){
-					diSanPingDh();//第二屏函数动画
+					diSanPingDh();//第三屏函数动画
 				}else if(num==1){
-					diErPingDh();//第一屏函数动画
+					diErPingDh();//第二屏函数动画
 				}else if(num==0){
-					diYiPingDh();//第0屏函数动画
+					diYiPingDh();//第一屏函数动画
 				}
 				
 				onoff=false;
