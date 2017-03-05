@@ -1,28 +1,29 @@
 function vrAnTa(){
-	
-	//生成内部结构
+	//生成内部结
 	$(".use").eq(0).append("<div id='view'></div>");
 	$("#view").html(htm);
 	$("#view").animate({
 		height:"100%"
 	},130,function(){
 		 setLoding();
+//		 setPerc();
 	});
 	
 	function setPerc(){
 		resetview();
-		window.onresize=resetview;
+		window.onresize = resetview;
 		function resetview(){
-			var view=document.querySelector("view");
-			var mian=document.querySelector("#mian");
-			var deg=52.5;
-			var height=document.documentElement.clientHeight;
-			var R=Math.round(Math.tan(deg/180*Math.PI)*height*.5);
-			view.style.webkitPerspective=view.style.MozPerspective=R+"px";
+			var view = document.querySelector('#view');
+			var mian = document.querySelector('#mian');
+			var deg = 52.5;//是参照原网站
+			var height = document.documentElement.clientHeight;
+			var R = Math.round(Math.tan(deg/180*Math.PI)*height*.5);
+			console.log(R)
+			view.style.WebkitPerspective = view.style.perspective = R + "px";
 			css(mian,"translateZ",R);
+	
 		}
 	}
-	
 	//预加载
 	function setLoding(){
 		var logoText=document.querySelector(".logoText");
@@ -117,6 +118,9 @@ function vrAnTa(){
 				swit=true;
 			}
 			return false;
+		})
+		Audio.addEventListener("touchend",function(ev){
+			ev.stopPropagation();
 		})
 		setTimeout(function(){
 			MTween({
@@ -260,7 +264,7 @@ function vrAnTa(){
 			callBack:function(){
 				 setDarg();
 				 setTimeout(function(){
-//						 	setSensors();
+						 	setSensors();
 				 },1000)
 			}
 		});
@@ -328,14 +332,14 @@ function vrAnTa(){
 		var startZ=css(tZ,"translateZ");
 		var lastDeg={x:0,y:0};
 		var lastDis={x:0,y:0};
-		view.addEventListener("touchstart",function(ev){
+		document.addEventListener("touchstart",function(ev){
 			ev.stopPropagation();
 			startPoint.x=ev.changedTouches[0].pageX;
 			startPoint.y=ev.changedTouches[0].pageY;
 			panoBgDeg.x=css(panoBg,"rotateY");
 			panoBgDeg.y=css(panoBg,"rotateX");
 		});
-		view.addEventListener("touchmove",function(ev){
+		document.addEventListener("touchmove",function(ev){
 			ev.stopPropagation();
 			var nowPoint = {};
 			var nowDeg = {};
@@ -375,12 +379,17 @@ function vrAnTa(){
 			if(Math.abs(dis.x)>300){
 				dis.x=300;
 			};
-			css(tZ,"translateZ",startZ-Math.abs(dis.x));
+			var disZ = Math.max(Math.abs(dis.x),Math.abs(dis.y));
+			if(disZ > 300){
+				disZ = 300;
+			}
+			css(tZ,"translateZ",startZ -disZ);
 		},{
 			passive:false
 		});
-		view.addEventListener("touchend",function(ev){
+		document.addEventListener("touchend",function(ev){
 			ev.stopPropagation();
+			ev.preventDefault();
 			var nowDeg={x:css(panoBg,"rotateY"),y:css(panoBg,"rotateX")};
 			var disDeg={x:lastDis.x*10,y:lastDis.y*10};
 			MTween({
@@ -389,6 +398,9 @@ function vrAnTa(){
 				time:800,
 				type:"easeOut"
 			});
+			if(disDeg==disDeg){
+				return
+			}
 			MTween({
 				el:panoBg,
 				target:{rotateY:nowDeg.x+disDeg.x},
@@ -401,6 +413,9 @@ function vrAnTa(){
 				time:800,
 				type:"easeOut"
 			});
+			
+		},{
+			passive:false
 		});
 	}
 	
@@ -602,115 +617,116 @@ function vrAnTa(){
 	}
 	
 	//陀螺仪
-//			function setSensors(){
-//				var pano = document.querySelector('#pano');
-//				var panoBg = document.querySelector('#panoBg');
-//				var start = {};
-//				var now = {};
-//				var startEl = {};
-//				var lastTime = Date.now();
-//				var scale = 129/18;
-//				var startZ = -160;
-//				var dir = window.orientation; //检测横竖屏
-//				window.isStart = false;
-//				window.isTouch = false;
-//				window.addEventListener('orientationchange', function(e) {
-//					dir = window.orientation;//用户切换了横竖之后，重置方向
-//				});
-//			
-//				
-//				window.addEventListener('deviceorientation', function(e)
-//				{
-//					if(window.isTouch){
-//						return;
-//					}
-//					switch(dir){
-//						case 0:
-//							var x = e.beta;
-//							var y = e.gamma;
-//							break;
-//						case 90:
-//							var x = e.gamma;
-//							var y = e.beta;
-//							break;	
-//						case -90:
-//							var x = -e.gamma;
-//							var y = -e.beta;
-//							break;	
-//						case 180:
-//							var x = -e.beta;
-//							var y = -e.gamma;
-//							break;
-//			
-//					}
-//					var nowTime = Date.now();
-//					if(nowTime - lastTime < 30){
-//						return;
-//					}
-//					lastTime = nowTime;
-//					if(!isStart){
-//						isStart = true;
-//						start.x = x;
-//						start.y = y;
-//						startEl.x = css(pano,"rotateX");
-//						startEl.y = css(pano,"rotateY");
-//					} else {
-//						now.x = x;
-//						now.y = y;
-//						var dis = {};
-//						dis.x = now.x - start.x;
-//						dis.y = now.y - start.y;
-//						var deg = {};
-//						deg.x = startEl.x + dis.x;
-//						deg.y = startEl.y + dis.y;
-//						if(deg.x > 45){
-//							deg.x = 45;
-//						} else if(deg.x < -45){
-//							deg.x = -45;
-//						}
-//						var disXZ = Math.abs(Math.round((deg.x  - css(pano,"rotateX"))*scale));
-//						var disYZ = Math.abs(Math.round((deg.y  - css(pano,"rotateY"))*scale));
-//						var disZ = Math.max(disXZ,disYZ);
-//						if(disZ > 300){
-//							disZ = 300;
-//						}
+	function setSensors(){
+//		var pano = document.querySelector('#pano');
+//		var panoBg = document.querySelector('#panoBg');
+//		var start = {};
+//		var now = {};
+//		var startEl = {};
+//		var lastTime = Date.now();
+//		var scale = 129/18;
+//		var startZ = -160;
+//		var dir = window.orientation; //检测横竖屏
+//		window.isStart = false;
+//		window.isTouch = false;
+//		window.addEventListener('orientationchange', function(e) {
+//			dir = window.orientation;//用户切换了横竖之后，重置方向
+//		});
+//		window.addEventListener('deviceorientation', function(e)
+//		{
+//			if(window.isTouch){
+//				return;
+//			}
+//			switch(dir){
+//				case 0:
+//					var x = e.beta;
+//					var y = e.gamma;
+//					break;
+//				case 90:
+//					var x = e.gamma;
+//					var y = e.beta;
+//					break;	
+//				case -90:
+//					var x = -e.gamma;
+//					var y = -e.beta;
+//					break;	
+//				case 180:
+//					var x = -e.beta;
+//					var y = -e.gamma;
+//					break;
+//	
+//			}
+//			var nowTime = Date.now();
+//			if(nowTime - lastTime < 30){
+//				return;
+//			}
+//			lastTime = nowTime;
+//			if(!isStart){
+//				//start
+//				isStart = true;
+//				start.x = x;
+//				start.y = y;
+//				startEl.x = css(pano,"rotateX");
+//				startEl.y = css(pano,"rotateY");
+//			} else {
+//				//move
+//				now.x = x;
+//				now.y = y;
+//				var dis = {};
+//				dis.x = now.x - start.x;
+//				dis.y = now.y - start.y;
+//				var deg = {};
+//				deg.x = startEl.x + dis.x;
+//				deg.y = startEl.y + dis.y;
+//				//pano.innerHTML = deg.x;
+//				if(deg.x > 45){
+//					deg.x = 45;
+//				} else if(deg.x < -45){
+//					deg.x = -45;
+//				}
+//				var disXZ = Math.abs(Math.round((deg.x  - css(pano,"rotateX"))*scale));
+//				var disYZ = Math.abs(Math.round((deg.y  - css(pano,"rotateY"))*scale));
+//				var disZ = Math.max(disXZ,disYZ);
+//				if(disZ > 600){
+//					disZ = 600;
+//				}
+//				MTween({
+//					el:tZ,
+//					target:{
+//						translateZ: startZ - disZ
+//					},
+//					time: 300,
+//					type: "easeOut",
+//					callBack: function(){
 //						MTween({
 //							el:tZ,
 //							target:{
-//								translateZ: startZ - disZ
+//								translateZ: startZ
 //							},
-//							time: 300,
-//							type: "easeOut",
-//							callBack: function(){
-//								MTween({
-//									el:tZ,
-//									target:{
-//										translateZ: startZ
-//									},
-//									time: 400,
-//									type: "easeOut"
-//								});
-//							}
-//						});
-//						MTween({
-//							el:pano,
-//							target:{
-//								rotateX:deg.x,
-//								rotateY:deg.y
-//							},
-//							time: 800,
-//							type: "easeOut"
-//						});
-//						MTween({
-//							el:panoBg,
-//							target:{
-//								rotateX:deg.x,
-//								rotateY:deg.y
-//							},
-//							time: 800,
+//							time: 400,
 //							type: "easeOut"
 //						});
 //					}
 //				});
+//				MTween({
+//					el:pano,
+//					target:{
+//						rotateX:deg.x,
+//						rotateY:deg.y
+//					},
+//					time: 800,
+//					type: "easeOut"
+//				});
+//				MTween({
+//					el:panoBg,
+//					target:{
+//						rotateX:deg.x,
+//						rotateY:deg.y
+//					},
+//					time: 800,
+//					type: "easeOut"
+//				});
 //			}
+//		});
+	}
 }
