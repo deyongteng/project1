@@ -1,24 +1,30 @@
 function animationD(){
 	$(".use").eq(2).append("<div class='animatiBox'></div>");
 	$('.animatiBox').append(animati);
-//	setLoding()
+	var loading=$('.animatiBox').append(loadingHtml);
+	setLoding();
 	function setLoding(){
 		var data=[];
 		var nub=0;
+		
 		for(var s in animation){
 			data=data.concat(animation[s]);
 		}
 		for (var i = 0; i < data.length; i++) {
 			var img=new Image();
-			img.src=data[i];
-			img.onload=function(){
+			if(typeof(data[i])=="string"){
+				img.src=data[i];
+				img.onload=function(){
 				nub++;
-//				logoText.innerHTML="已加载"+(Math.floor(nub/data.length*100))+"%";
-				if(nub===data.length){
-					anmt();
-					$(".Modular").show();
+				$(".logoText").html("已加载"+(Math.floor(nub/49*100))+"%");
+				if(nub===49){
+					$(".loading").hide();
+					$(".Modular").eq(0).show();
+					diYiPingDh();//第一屏动画
 				}
 			}
+			}
+			
 		}
 	}
 	//第一屏
@@ -146,7 +152,6 @@ function animationD(){
 		},2000);
 	}
 	//第一屏总动画函数；
-	diYiPingDh();
 	function diYiPingDh(){
 		daojishi();
 		$(".titeBox").hide();
@@ -160,37 +165,8 @@ function animationD(){
 		},3000);
 	}
 	
-//第二屏
-	var diErPingHtml="";
-	var bg2=animation.img2;
-	var bg2TextBox=animation.img2Text;
-	diErPingHtml+="<ul class='bgBox2'>";
-		for (var i = 0; i < bg2.length; i++) {
-			diErPingHtml+="<li class='bg2_"+(i+1)+"Box'>";
-			diErPingHtml+="<img src='"+bg2[i]+"'/>";
-			diErPingHtml+="</li>";
-		}
-	diErPingHtml+="</ul>";
-	jQ_Modular.eq(1).append(diErPingHtml);
-	$(".bgBox2").append(titleHTML2);//头部文字与中间文字的框架（引用了html.js文件）；
-	$(".top2").html(bg2TextBox[0]);
-	var bg2Text=animation.img2Text;
-	var pHtml="";
-	for (var i = 1; i < bg2Text.length; i++) {
-		pHtml+="<span class='text"+(i+1)+"'>"+bg2Text[i]+"</span>";
-	}
-	$(".textContent").append(pHtml);
-	
-	//第二屏动画函数（头部、中间、底部动画）
-	function diErPingDh(){ 
-		TweenMax.staggerFrom(".top1", 0.8, {z:-100, scale:0.6, opacity:0, delay:0.8, ease:Elastic.liner});
-		TweenMax.staggerFrom(".top2", 0.8, {z:100, scale:2, opacity:0, delay:0.5, ease:Elastic.liner});
-		TweenMax.staggerFrom(".top3", 0.8, {z:-100, scale:0.6, opacity:0, delay:0.8, ease:Elastic.liner});
-		TweenMax.staggerFrom(".textContent", 3, {z:-100, scale:0.6, opacity:0, delay:1.5, ease:Elastic.easeOut});
-		TweenMax.staggerFrom(".bg2_4Box", 0.8, {y:1000, scale:1, opacity:0, delay:0.5, ease:Elastic.liner});
-	}
 
-   	//第三屏
+   	//第二屏
    	var diSanPing=animation.img3;
    	var nameLin=animation.name;
    	var diSanPingHtml="";
@@ -220,11 +196,11 @@ function animationD(){
    	diSanPingHtml+="</li>";
    	
    	diSanPingHtml+="</ul>";
-   	jQ_Modular.eq(2).append(diSanPingHtml);
+   	jQ_Modular.eq(1).append(diSanPingHtml);
 	$(".bg3_6Box").append(svgHtml);
 	
-	//第三屏动画
-	function diSanPingDh(){
+	//第二屏动画
+	function diErPingDh(){
 		TweenMax.staggerFrom(".bg3_4Box", 1, {y:-800, scale:1, opacity:0, delay:0.3, ease:Elastic.liner});
 		TweenMax.staggerFrom(".bg3_5Box", 2, {y:0, scale:1, opacity:0, delay:0.5, ease:Elastic.liner});
 		TweenMax.staggerFrom(".bg3_6Box", 1, {x:-100, scale:1, opacity:1, delay:0.5, ease:Elastic.easeOut});
@@ -233,6 +209,36 @@ function animationD(){
 		TweenMax.staggerFrom(".bg3_9Box", 1, {y:300, scale:1, opacity:0,  rotation:0, delay:1.5, ease:Elastic.liner});
 		TweenMax.staggerFrom(".bg3_10Box", 0.5, {x:-100, scale:1, opacity:0, rotation:-90, delay:1.5,  ease:Elastic.liner});
 		TweenMax.staggerFrom(".nameL", 1, {x:0, scale:0.1, opacity:0,  rotation:0, delay:2, ease:Elastic.liner});
+	}
+	
+	//第三屏
+	var diSanPingHtml="";
+	var bg2=animation.img2;
+	var bg2TextBox=animation.img2Text;
+	diSanPingHtml+="<ul class='bgBox2'>";
+		for (var i = 0; i < bg2.length; i++) {
+			diSanPingHtml+="<li class='bg2_"+(i+1)+"Box'>";
+			diSanPingHtml+="<img src='"+bg2[i]+"'/>";
+			diSanPingHtml+="</li>";
+		}
+	diSanPingHtml+="</ul>";
+	jQ_Modular.eq(2).append(diSanPingHtml);
+	$(".bgBox2").append(titleHTML2);//头部文字与中间文字的框架（引用了html.js文件）；
+	$(".top2").html(bg2TextBox[0]);
+	var bg2Text=animation.img2Text;
+	var pHtml="";
+	for (var i = 1; i < bg2Text.length; i++) {
+		pHtml+="<span class='text"+(i+1)+"'>"+bg2Text[i]+"</span>";
+	}
+	$(".textContent").append(pHtml);
+	
+	//第三屏动画函数（头部、中间、底部动画）
+	function diSanPingDh(){ 
+		TweenMax.staggerFrom(".top1", 0.8, {z:-100, scale:0.6, opacity:0, delay:0.8, ease:Elastic.liner});
+		TweenMax.staggerFrom(".top2", 0.8, {z:100, scale:2, opacity:0, delay:0.5, ease:Elastic.liner});
+		TweenMax.staggerFrom(".top3", 0.8, {z:-100, scale:0.6, opacity:0, delay:0.8, ease:Elastic.liner});
+		TweenMax.staggerFrom(".textContent", 3, {z:-100, scale:0.6, opacity:0, delay:1.5, ease:Elastic.easeOut});
+		TweenMax.staggerFrom(".bg2_4Box", 0.8, {y:1000, scale:1, opacity:0, delay:0.5, ease:Elastic.liner});
 	}
 	
 	//第四屏
@@ -383,8 +389,11 @@ function animationD(){
 	var onoff=true;
 	var num=0;
 	var Mod_length=jQ_Modular.length-1;
+	jQ_Modular.css("zIndex",0);
 	jQ_Modular.eq(0).css("zIndex",2);
 	jQ_Modular.eq(1).css("zIndex",1);
+
+
 	jQ_animatiBox.on("touchstart",function(ev){
 		height=document.getElementById("interface").offsetHeight;
 		getStartY=ev.changedTouches[0].pageY;
@@ -414,9 +423,11 @@ function animationD(){
 					//第二屏总动画函数；
 				onoff=false;
 			}
-			jQ_Modular.css("zIndex",0);
-			jQ_Modular.eq(num-1).css("zIndex",2);
-			jQ_Modular.eq(num).css("zIndex",3);
+			jQ_Modular.hide();
+			jQ_Modular.eq(num).show();
+			jQ_Modular.eq(num-1).show();
+			jQ_Modular.eq(num-1).css("zIndex",8);
+			jQ_Modular.eq(num).css("zIndex",10);
 			jQ_Modular.eq(num).css("top","100%");
 			jQ_Modular.eq(num).css("top",setValueY+height);
 			
@@ -443,9 +454,11 @@ function animationD(){
 				
 				onoff=false;
 			}
-			jQ_Modular.css("zIndex",0);
-			jQ_Modular.eq(num).css("zIndex",3);
-			jQ_Modular.eq(num+1).css("zIndex",2);
+			jQ_Modular.hide();
+			jQ_Modular.eq(num).show();
+			jQ_Modular.eq(num+1).show();
+			jQ_Modular.eq(num).css("zIndex",10);
+			jQ_Modular.eq(num+1).css("zIndex",8);
 			jQ_Modular.eq(num).css("top",-height);
 			jQ_Modular.eq(num).css("top",setValueY-height);
 		}

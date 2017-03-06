@@ -47,7 +47,7 @@ var  animation={
 				title:[
 					"./animation/img1/title/bgnuber.png",
 					"./animation/img1/title/bgText.png",
-					"前端生涯",
+					["前端生涯"],
 					"./animation/img1/title/LightSpot.png"
 				],
 				title1:[
@@ -61,10 +61,10 @@ var  animation={
 					"./animation/img2/earth.png"
 				],
 				img2Text:[
-					"我的规划",
-					"2016年已经到来，为展现并提示自己的技能、能够为公司带来更大利润，能够更加完善自己、能够创新更多，所以在新的一年里总结了过往经验，归纳为二。",
-					"一、树立一个方向：有方向才能知道自己该往哪走、往哪完善、怎么给公司带来利润",
-					"二、从哪里出发：1.了解公司需求，了解工作环境，了解前沿技术与行情动态；2.从用户体验出发优化产品，研究对公司有利的技术，做高性能低消耗；3.发现问题、分析问题、解决问题、与团队共进退；"
+					["我的规划"],
+					["2016年已经到来，为展现并提示自己的技能、能够为公司带来更大利润，能够更加完善自己、能够创新更多，所以在新的一年里总结了过往经验，归纳为二。"],
+					["一、树立一个方向：有方向才能知道自己该往哪走、往哪完善、怎么给公司带来利润"],
+					["二、从哪里出发：1.了解公司需求，了解工作环境，了解前沿技术与行情动态；2.从用户体验出发优化产品，研究对公司有利的技术，做高性能低消耗；3.发现问题、分析问题、解决问题、与团队共进退；"]
 				],
 				img3:[
 					"./animation/img3/bg1.png",
@@ -73,14 +73,14 @@ var  animation={
 					"./animation/img3/earth.png",
 					"./animation/img3/bg4.png",
 					"./animation/img3/border.png",
-					"个人信息",
+					["个人信息"],
 					"./animation/img3/bottom.png",
-					"一个问题百思解、一个创新夜难眠。"
+					["一个问题百思解、一个创新夜难眠。"]
 				],
 				name:[
 					"./animation/img3/border.png",
 					"./animation/img3/img.jpg",
-					"滕德勇",
+					["滕德勇"],
 				],
 				img4:[
 					"./animation/img4/bg1.png",
@@ -88,7 +88,7 @@ var  animation={
 					"./animation/img4/bg3.png",
 					"./animation/img4/earth.png",
 					"./animation/img3/bottom.png",
-					"时光之轴",
+					["时光之轴"],
 					"./animation/img4/Bar1.png",
 					"./animation/img4/Bar2.png"
 				],
@@ -96,18 +96,18 @@ var  animation={
 					"./animation/img4/LightSpot.png"
 				],
 				img4TopText:[
-					"2014 &nbsp; July",
-					"2014 &nbsp; August",
-					"2015 &nbsp; March",
-					"2015 &nbsp; August",
-					"2014 &nbsp; November"
+					["2014 &nbsp; July"],
+					["2014 &nbsp; August"],
+					["2015 &nbsp; March"],
+					["2015 &nbsp; August"],
+					["2014 &nbsp; November"]
 				],
 				img4BottomText:[
-					"易企秀团队创意初成",
-					"易企秀产品web1.0正式上线",
-					"光明日报采用易企秀报道两会",
-					"易企秀正式成立公司",
-					"获得千万美金级别A轮融资"
+					["易企秀团队创意初成"],
+					["易企秀产品web1.0正式上线"],
+					["光明日报采用易企秀报道两会"],
+					["易企秀正式成立公司"],
+					["获得千万美金级别A轮融资"]
 				],
 				img5:[
 					"./animation/img5/bg1.png",
@@ -117,9 +117,9 @@ var  animation={
 					"./animation/img5/border.png",
 					"./animation/img5/bg5.png",
 					"./animation/img5/bg6.png",
-					"我的作品",
+					["我的作品"],
 					"./animation/img5/bottom.png",
-					"欢迎你来欣赏",
+					["欢迎你来欣赏"],
 					"./animation/img5/LightSpot.png"
 				],
 				worksS:[

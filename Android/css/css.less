@@ -86,12 +86,12 @@ img{
 
 //QQ登录loding
 @-webkit-keyframes nameS{
-    0%{ -webkit-transform: rotateZ(0deg)}
-    100%{ -webkit-transform: rotateZ(360deg)}
+    0%{ -webkit-transform: rotateZ(360deg)}
+    100%{ -webkit-transform: rotateZ(0deg)}
 }
 @keyframes nameS{
-    0%{ transform: rotateZ(0deg)}
-    100%{ transform: rotateZ(360deg)}
+    0%{ transform: rotateZ(360deg)}
+    100%{ transform: rotateZ(0deg)}
 }
 .clearfix:after{
     content: "";
@@ -1022,6 +1022,31 @@ img{
 }
 //====================================================================================================
 //animation区
+.loading{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #fff;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
+.loadingImg{
+    width: 20/@rem;
+    height: 20/@rem;
+    position: absolute;
+    left: 32%;
+    top: 50.5%;
+}
+.loadingImg>img{
+    width: 20/@rem;
+    height: 20/@rem;
+    animation: 0.8s nameS linear infinite;
+}
+.loadinT{
+    margin-left: 10/@rem;
+}
+
 .Modular{
     width: 100%;
     height: 568/@rem;
@@ -1029,7 +1054,7 @@ img{
     left: 0;
     top: 0;
     overflow: hidden;
-//  display:none;
+    display:none;
 }
 /*第一屏*/
 .bgBox,
@@ -1763,5 +1788,5 @@ img{
 .qqBox2,
 #shade,
 #shade1{
-    display: none;
+//  display: none;
 }

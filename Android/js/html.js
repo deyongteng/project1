@@ -96,7 +96,12 @@ var animati="<div class='Modular'></div>\
 			 <div class='Modular'></div>\
 			 <div class='Modular'></div>\
 			 <div class='Modular'></div>";
-			 
+var loadingHtml="<div class='loading'>\
+					<div class='loadingImg'>\
+						<img src='./img/loding.png' />\
+					</div>\
+					<p class='logoText loadinT'></p>\
+				</div>"
 var titleHTML2="<li class='titleTop clearfix'>\
 					<span class='top1'></span>\
 					<span class='top2'></span>\
