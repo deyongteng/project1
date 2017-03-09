@@ -52,7 +52,7 @@ var arr=["url(img/01.jpg)","url(img/02.jpg)","url(img/03.jpg)","url(img/04.jpg)"
 setTimeout(function(){
 	texT.style.transition="3s";
 	texT.style.opacity="0";
-},10000);
+},30000);
 qU.onclick=function(){
 	iM++;
 	if(iM>=arr.length){
