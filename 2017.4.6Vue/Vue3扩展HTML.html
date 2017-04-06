@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+		<script src="vue.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<div style="float:left">
+				<h2>自定义的下拉框</h2>
+				<custom-select but-value="查询" v-bind:list="list1"></custom-select>
+			</div>
+			<div style="float:left">
+				<h2>自定义的下拉框2</h2>
+				<custom-select but-value="搜索" v-bind:list="list2"></custom-select>
+			</div>
+			
+		</div>
+		<script>
+			Vue.component("custom-select",{
+				data:function(){
+					return {
+						selectShow:false,
+						val:""
+					}
+				},
+				props:["butValue","list"],
+				template:`<section class="warp">
+					<div class="searchIpt clearFix">
+						<div class="clearFix">
+							<input type="text" class="keyWord" :value="val" @click="selectShow = !selectShow"/>
+							<input type="button" :value="butValue">
+							<span></span>
+						</div>
+						<custom-list 
+							v-show="selectShow" 
+							:list="list"
+							v-on:receive="changeValueHandle"
+						></custom-list>
+					</div>
+				</section>`,
+				methods:{
+					changeValueHandle(value){
+						this.val =  value
+					}
+				}
+			});
+			
+			Vue.component("custom-list",{
+				props:["list"],
+				template:`<ul class="list">
+							<li v-for="item in list" @click="selectValueHandle(item)">{{item}}</li>
+						</ul>`,
+				methods:{
+					selectValueHandle:function(item){
+						//在子组件中有交互
+						//告知父级，改变val的值，需要触发一个自定义事件
+						this.$emit("receive",item)
+					}
+				}
+			})
+			new Vue({
+				el:"#app",
+				data:{
+					list1:["北京","上海","广州","杭州","厦门"],
+					list2:["2014-4-4","2015-5-5","2016-6-6","2017-7-7","2018-8-8"]
+				}
+			})
+
+		</script>
+	</body>
+</html>
