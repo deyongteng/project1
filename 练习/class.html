@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.red{
+				color: #FF0000;
+			}
+		</style>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<p v-bind:class="{red:addClass}">{{message}}</p>
+		</div>
+		
+		<script>
+			let obj={
+				addClass:true,
+				message:"hello,vue!"
+			}
+			var vm=new Vue({
+				el:"#box",
+				data:obj,
+				
+			})
+		</script>
+	</body>
+</html>

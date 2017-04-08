@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.bg{
+				background:yellow;
+			}
+		</style>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<p>{{message}}</p>
+		</div>
+		
+		<script>
+			let obj={
+				message:"hello,vue!"
+			}
+			var vm=new Vue({
+				el:"#box",
+				data:obj,
+				render(createElement){
+					var objs=createElement(
+						"ul",
+						{
+							class:{
+								bg:true
+							},
+							style:{
+								width: "100px",
+								height: "100px",
+								fontSize:"20px",
+								borderRadius: "50%",
+								listStyle: "none",
+								textAlign: "center",
+								margin: 0,
+								padding: 0
+							},
+							attrs:{
+								adc:"tdy"
+							},
+							domProps:{
+								innerHTML:"<li>我是html</li>"
+							}
+						},
+						[
+							createElement("li",1),
+							createElement("li",2),
+							createElement("li",3)
+						]
+					);
+					console.log(objs)
+					return objs
+				}
+				
+			})
+		</script>
+	</body>
+</html>

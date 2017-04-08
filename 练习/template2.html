@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script type="x-template" id="temp">
+			<div>
+				<span>template</span>
+			</div>
+		</script>
+		<script>
+			let obj={
+				html:"<div>hello,vue!</div>"
+			}
+			var vm=new Vue({
+				el:"#box",
+				data:obj,
+				template:"#temp"
+			})
+		</script>
+	</body>
+</html>

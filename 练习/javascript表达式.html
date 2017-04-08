@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+		<script src="vue.js"></script>
+	<body>
+		<div id="box">
+			{{1+2}}
+			{{true? "yes":"no"}}
+			<div v-html="html"></div>
+		</div>
+		<script>
+			let obj={
+				html:"<div>TDY</div>"
+			}
+			var vm=new Vue({
+				el:"#box",
+				data:obj
+			})
+		</script>
+	</body>
+</html>

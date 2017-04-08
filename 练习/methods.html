@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<span v-on:click="clickHandle">{{message}}</span>
+		</div>
+		<script>
+			let obj={
+				message:"hello,Vue!"
+			}
+			var vn=new Vue({
+				el:"#box",
+				data:obj,
+				methods:{
+					clickHandle:function(){
+						alert("clikc")
+					}
+					//ES6写法
+					//clickHandle(){
+					//	 alert("clikc")
+					//}
+				}
+			})
+			console.log(vn.$data)
+		</script>
+	</body>
+</html>
