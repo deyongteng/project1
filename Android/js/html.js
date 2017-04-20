@@ -14,40 +14,41 @@ var htm="<div id='pageBg'></div>\
 				</div>";
 
 //QQ登录面板
-var strenter="<div class='qqBox2'>\
-		<div class='logon'>\
-			<div class='initilBg'></div>\
-			<div class='logonOption'>\
-				<span>登 录</span>\
-				<span>注 册</span>\
-			</div>\
-		</div>\
-		<div class='logon1'>\
-			<div class='tImgBox'>\
-				<span class='qqImg'></span>\
-			</div>\
-			<div class='textBox'>\
-				<div class='inpu'>\
-					<span>×</span>\
-					<input maxlength='17' placeholder='QQ号/手机号/邮箱' type='text' class='texts'/>\
-					<span>×</span>\
-					<input maxlength='17' placeholder='密码' type='password' class='pass'/>\
+var strenter="<div class='menu'></div>\
+			<div class='qqBox2'>\
+				<div class='logon'>\
+					<div class='initilBg'></div>\
+					<div class='logonOption'>\
+						<span>登 录</span>\
+						<span>注 册</span>\
+					</div>\
 				</div>\
-				<div class='enter'>\
-					<div class='subm'>登 录</div>\
+				<div class='logon1'>\
+					<div class='tImgBox'>\
+						<span class='qqImg'></span>\
+					</div>\
+					<div class='textBox'>\
+						<div class='inpu'>\
+							<span>×</span>\
+							<input maxlength='17' placeholder='QQ号/手机号/邮箱' type='text' class='texts'/>\
+							<span>×</span>\
+							<input maxlength='17' placeholder='密码' type='password' class='pass'/>\
+						</div>\
+						<div class='enter'>\
+							<div class='subm'>登 录</div>\
+						</div>\
+						<div class='user clearfix'>\
+							<span class='lef'>忘记密码？</span>\
+							<span class='rig'>新用户注册</span>\
+						</div>\
+					</div>\
+					<div class='skewBox'>\
+						<span></span>\
+						<span>我已阅读并同意</span>\
+						<a href='http://ti.qq.com/agreement/index.html'>服务条款</a>\
+					</div>\
 				</div>\
-				<div class='user clearfix'>\
-					<span class='lef'>忘记密码？</span>\
-					<span class='rig'>新用户注册</span>\
-				</div>\
-			</div>\
-			<div class='skewBox'>\
-				<span></span>\
-				<span>我已阅读并同意</span>\
-				<a href='http://ti.qq.com/agreement/index.html'>服务条款</a>\
-			</div>\
-		</div>\
-	</div>";
+			</div>";
 
 //QQ内部面板
 var strenter2="<div class='InterfaceBox'>\
@@ -95,7 +96,8 @@ var animati="<div class='Modular'></div>\
 			 <div class='Modular'></div>\
 			 <div class='Modular'></div>\
 			 <div class='Modular'></div>\
-			 <div class='Modular'></div>";
+			 <div class='Modular'></div>\
+			 <div class='menu'></div>";
 var loadingHtml="<div class='loading'>\
 					<div class='loadingImg'>\
 						<img src='./img/loding.png' />\

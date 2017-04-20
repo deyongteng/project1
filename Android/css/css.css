@@ -113,34 +113,33 @@ img {
   overflow: hidden;
   display: none;
 }
-#menu {
+.menu {
   width: 1.75rem;
   height: 1.75rem;
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid #000000;
+  background: url(../img/close.png) no-repeat;
+  background-size: 100% 100% ;
   border-radius: 50%;
   position: absolute;
-  left: 0;
-  top: 0;
+  right: 5%;
+  top: 5%;
   z-index: 100;
-  display: none;
 }
 .lockScreen {
-  width: 3.125rem;
-  height: 3.125rem;
+  width: 2.5rem;
+  height: 2.5rem;
   position: absolute;
-  left: 0px;
+  right: 0px;
   top: 0px;
   text-align: center;
-  line-height: 3.125rem;
-  font-size: 1.25rem;
+  line-height: 2.5rem;
+  font-size: 1rem;
+  font-family: "微软雅黑";
   color: #0D0A15;
   background: rgba(255, 235, 255, 0.7);
   border-radius: 50%;
   -webkit-transform: scale(0.1);
   transform: scale(0.1);
   display: none;
-  transition: 0.5s;
 }
 /*遮罩层*/
 #shade {
@@ -249,11 +248,36 @@ img {
   margin-left: 1.5625rem;
   margin-top: 1.25rem;
 }
-.use > img {
+.use > span:nth-of-type(1) {
+  display: block;
+  background: #E6E7E7;
+  border-radius: 20%;
   width: 3.125rem;
   height: 3.125rem;
 }
+.use > span > img {
+  width: 3.125rem;
+  height: 3.125rem;
+  border-radius: 20%;
+}
 .use > span {
+  display: inline-block;
+  width: 100%;
+  height: 0.625rem;
+  text-align: center;
+  font-size: 0.75rem;
+  font-family: "微软雅黑";
+  line-height: 0.625rem;
+  color: #fff;
+}
+.use:nth-of-type(3) > span {
+  font-family: arial;
+}
+.lianJ > img {
+  width: 3.125rem;
+  height: 3.125rem;
+}
+.lianJ > span {
   display: inline-block;
   width: 100%;
   height: 0.625rem;
@@ -466,7 +490,8 @@ img {
   height: 5rem;
   border-radius: 50% ;
   border: 1px solid #fff;
-  background-position: center 0;
+  background-position: center -0.9375rem;
+  background-size: 180% 180%;
   margin-top: 6%;
 }
 .textBox {
@@ -826,7 +851,7 @@ h3 {
 .topT > span:nth-of-type(1) {
   width: 1.5625rem;
   height: 1.5625rem;
-  background-position: center 0;
+  background-position: center -0.375rem;
   background-size: 200%;
   background-repeat: no-repeat;
   border-radius: 50%;
@@ -1691,6 +1716,7 @@ h3 {
 .bg5_9Box,
 .bg5_10Box,
 .bg5_11Box,
+.bg5_12Box,
 .Worke1Box {
   position: absolute;
 }
@@ -1803,6 +1829,17 @@ h3 {
 .bg5_11Box > img {
   width: 9.9375rem;
   height: 10.8125rem;
+}
+.bg5_12Box {
+  width: 100%;
+  height: 2.5rem;
+  left: 0;
+  bottom: 10.5rem;
+}
+.bg5_12Box > a {
+  font-family: F_rBB61z;
+  font-size: 1rem;
+  color: #ffd981;
 }
 .Worke1Box {
   width: 14.0625rem;

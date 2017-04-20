@@ -1,4 +1,10 @@
 function animationD(){
+	document.addEventListener("touchstart",function(ev){
+		ev.preventDefault();
+	},{
+		passive:false
+	});
+
 	$(".use").eq(2).append("<div class='animatiBox'></div>");
 	$('.animatiBox').append(animati);
 	var loading=$('.animatiBox').append(loadingHtml);
@@ -6,7 +12,6 @@ function animationD(){
 	function setLoding(){
 		var data=[];
 		var nub=0;
-		
 		for(var s in animation){
 			data=data.concat(animation[s]);
 		}
@@ -15,14 +20,15 @@ function animationD(){
 			if(typeof(data[i])=="string"){
 				img.src=data[i];
 				img.onload=function(){
-				nub++;
-				$(".logoText").html("已加载"+(Math.floor(nub/49*100))+"%");
-				if(nub===49){
-					$(".loading").hide();
-					$(".Modular").eq(0).show();
-					diYiPingDh();//第一屏动画
+					nub++;
+					$(".logoText").html("已加载"+(Math.floor(nub/49*100))+"%");
+					if(nub===49){
+						$(".loading").hide();
+						$(".loading").css("z-index","0");
+						$(".Modular").eq(0).show();
+						diYiPingDh();//第一屏动画
+					}
 				}
-			}
 			}
 			
 		}
@@ -56,7 +62,7 @@ function animationD(){
 		TweenMax.staggerFrom(".time", 1, {scale:0.5, opacity:0,  ease:Elastic.easeOut});
 		var num=0;
 		var timeVal=setInterval(function(){
-			++num;
+			++num; 
 			if(num===2){
 				clearInterval(timeVal);
 			}
@@ -330,7 +336,11 @@ function animationD(){
 	diWuPingHtml+="<ul class='bgBox5'>";
 		for (var i = 0; i < diWuPing.length; i++) {
 			
-			if(i===9){
+			if(i===11){
+				diWuPingHtml+="<li class='bg5_"+(i+1)+"Box''>";
+				diWuPingHtml+="<a href='https://github.com/deyongteng'>"+diWuPing[i]+"</a>";
+				diWuPingHtml+="</li>";
+			}else if(i===9){
 				diWuPingHtml+="<li class='bg5_"+(i+1)+"Box''>";
 				diWuPingHtml+="<span>"+diWuPing[i]+"</span>";
 				diWuPingHtml+="</li>";
@@ -372,6 +382,7 @@ function animationD(){
 				TweenMax.staggerFrom(".Worke1Box", 2.5, {y:0, scale:1, opacity:0,  rotationX:-180, rotationY:-180,  delay:1.5, ease:Elastic.easeOut});
 				TweenMax.staggerFrom(".bg5_10Box", 1, {y:200, scale:1, opacity:0,  rotationX:0, rotationY:0,  delay:2, ease:Elastic.liner});
 				TweenMax.staggerFrom(".bg5_11Box", 1, {y:500, scale:0.6, opacity:0,  rotationX:0, rotationY:0,  delay:2.5, ease:Elastic.liner});
+				TweenMax.staggerFrom(".bg5_12Box", 1, {y:0, scale:0.6, opacity:0,  rotationX:0, rotationY:0,  delay:2.5, ease:Elastic.liner});
 				
 		}
 
@@ -478,6 +489,50 @@ function animationD(){
 			},500,function(){
 				jQ_Modular.eq(num+1).css("top",height);
 			});
+		}
+	});
+	
+	//关闭按钮
+	var setValueY="";
+	var getStartY="";
+	var getStartX="";
+	var getTop;
+	var getLeft;
+	var setLeft=0;
+	var setTop=0;
+	var onoff=true;
+	var menu=document.querySelector(".menu");
+	
+	menu.addEventListener("touchstart",function(ev){
+		getStartY=ev.changedTouches[0].pageY;
+		getStartX=ev.changedTouches[0].pageX;
+		getLeft=css(menu,"left");
+		getTop=css(menu,"top");
+		onoff=true;
+	});
+	
+	menu.addEventListener("touchmove",function(ev){
+		onoff=false;
+		var getMoveY="";
+		var getMoveX="";
+		
+		getMoveY=ev.changedTouches[0].pageY;
+		getMoveX=ev.changedTouches[0].pageX;
+		setValueY=getMoveY-getStartY;
+		setValueX=getMoveX-getStartX;
+		
+		setTop=getTop+setValueY;
+		setLeft=getLeft+setValueX;
+		
+		css(menu,"left",setLeft);
+		css(menu,"top",setTop);
+		
+	});
+	menu.addEventListener("touchend",function(){
+		if(onoff){
+			obj.onoff=true;
+			$("#menu").hide();
+			$(".use").eq(2).children().eq(2).remove();
 		}
 	});
 }

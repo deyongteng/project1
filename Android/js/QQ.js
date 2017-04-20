@@ -66,6 +66,17 @@ function qqIndex(){
 	var tK2="<div class='bouncedBox2'><span class='tanK2'>i</span><span></span></div>";
 	$(".logon1").append(tK2);
 	
+	//阻止冒泡
+	document.querySelectorAll('input').forEach(function(obj){
+	  obj.addEventListener('touchstart', function(ev) {
+	    ev.stopPropagation();
+	  }, false);
+	});
+	document.querySelectorAll('a').forEach(function(obj){
+	  obj.addEventListener('touchstart', function(ev) {
+	    ev.stopPropagation();
+	  }, false);
+	});
 	//显示/隐藏 清空按钮
 	var delet1=$(".inpu").find("span").eq(0);
 	var delet2=$(".inpu").find("span").eq(1);
@@ -104,18 +115,6 @@ function qqIndex(){
         }
     });
 	
-	//阻止冒泡
-	document.querySelectorAll('input').forEach(function(obj){
-	  obj.addEventListener('touchstart', function(ev) {
-	    ev.stopPropagation();
-	  }, false);
-	});
-	
-	document.querySelectorAll('a').forEach(function(obj){
-	  obj.addEventListener('touchstart', function(ev) {
-	    ev.stopPropagation();
-	  }, false);
-	});
 	
 	//登录验证
 	$(".subm").on("touchstart",function(){
@@ -215,6 +214,11 @@ function qqIndex(){
 		},400,function(){
 			loadinImg.css("-webkit-animation-play-state","paused");
 			loadinImg.css("animation-play-state","paused");
+			document.addEventListener("touchstart",function(ev){
+				ev.preventDefault();
+			},{
+				passive:false
+			});
 		});
 	}
 
@@ -269,7 +273,7 @@ function qqIndex(){
 	
 	var spanS="";
 	for (var i = 0; i < GradeImg.length; i++) {
-		spanS+="<span class='Grade' style='background-image:url("+GradeImg[i]+")'></span>"
+		spanS+="<span class='Grade' style='background-image:url("+GradeImg[i]+")'></span>";
 	}
 	$('.styleDengj').append(spanS);
 	$('.dataBox').find("p").html(explain[0]);
@@ -518,5 +522,49 @@ function qqIndex(){
 				});
 			}
 		}
-	}); 
+	});
+	
+	//关闭按钮
+	var setValueY="";
+	var getStartY="";
+	var getStartX="";
+	var getTop;
+	var getLeft;
+	var setLeft=0;
+	var setTop=0;
+	var onoff=true;
+	var menu=document.querySelector(".menu");
+	
+	menu.addEventListener("touchstart",function(ev){
+		getStartY=ev.changedTouches[0].pageY;
+		getStartX=ev.changedTouches[0].pageX;
+		getLeft=css(menu,"left");
+		getTop=css(menu,"top");
+		onoff=true;
+	});
+	
+	menu.addEventListener("touchmove",function(ev){
+		onoff=false;
+		var getMoveY="";
+		var getMoveX="";
+		
+		getMoveY=ev.changedTouches[0].pageY;
+		getMoveX=ev.changedTouches[0].pageX;
+		setValueY=getMoveY-getStartY;
+		setValueX=getMoveX-getStartX;
+		
+		setTop=getTop+setValueY;
+		setLeft=getLeft+setValueX;
+		
+		css(menu,"left",setLeft);
+		css(menu,"top",setTop);
+		
+	});
+	menu.addEventListener("touchend",function(){
+		if(onoff){
+			obj.onoff=true;
+			$("#menu").hide();
+			$(".use").eq(1).children().eq(2).remove();
+		}
+	});
 }

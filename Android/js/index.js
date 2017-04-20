@@ -2,12 +2,6 @@ var obj = {
 	onoff:true
 };
 ;(function(){
-	document.addEventListener("touchstart",function(ev){
-		ev.preventDefault();
-	},{
-		passive:false
-	});
-
 	var now = new Date();
 	var h = now.getHours();
 	var m = now.getMinutes();
@@ -76,7 +70,6 @@ var obj = {
 		}
 		return arr;
 	}
-	
 	function go(index,srcNum){
 		//把变得的下标和更改的值传入并更改
 		$(".time_ul").eq(index).find("li").css("-webkit-animation-play-state","running");
@@ -117,7 +110,8 @@ var obj = {
 //生成内部应用
 	var str="";
 	for (var i = 0; i < data1.length; i++) {
-		str+="<div class='use' data-id="+i+"><img src="+data1[i]+" /><span>"+texts[i]+"</span></div>"
+		str+="<div class='use' data-id="+i+"><span><img src="+data1[i]+" /></span><span>"+texts[i]+"</span></div>";
+		
 	}
 	$("#use_box").html(str);
 	 index=$(this).index();
@@ -132,18 +126,18 @@ var obj = {
 		}
 		if(index===1){
 			if(obj.onoff){
+				$("#menu").show();
 				obj.onoff=false;
 				qqIndex();
 			}
 		}
 		if(index===2){
 			if(obj.onoff){
+				$("#menu").show();
 				obj.onoff=false;
+				
 				animationD();
 			}
-		}
-		if(index===3){
-			$(".use").eq(3).append("<div class='photoBox'></div>")
 		}
 	});
 })()
